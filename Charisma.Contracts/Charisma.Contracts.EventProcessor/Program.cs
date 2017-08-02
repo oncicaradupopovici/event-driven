@@ -34,10 +34,12 @@ namespace Charisma.Contracts.EventProcessor
                 .AddConsole(LogLevel.Debug);
 
 
-            var eventTypes = new[] { typeof(ContractCreated), typeof(ContractAmountUpdated) };
             var eventProcessor = new SharedKernel.EventProcessor.EventProcessor(serviceProvider);
 
-            eventProcessor.ProcessEventsAsync(eventTypes).Wait();
+            Task.WaitAll(
+                eventProcessor.ProcessEventAsync<ContractCreated>(),
+                eventProcessor.ProcessEventAsync<ContractAmountUpdated>()
+            );
         }
 
     }

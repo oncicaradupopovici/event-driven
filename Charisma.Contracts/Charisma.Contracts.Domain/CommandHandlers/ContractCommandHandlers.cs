@@ -19,7 +19,7 @@ namespace Charisma.Contracts.Domain.CommandHandlers
         public async Task HandleAsync(CreateContract message)
         {
             var contract = new Contract(message.Id, message.Amount, message.ClientId);
-            await _repository.SaveAsync(contract, -1);
+            await _repository.SaveAsync(contract);
 
         }
 

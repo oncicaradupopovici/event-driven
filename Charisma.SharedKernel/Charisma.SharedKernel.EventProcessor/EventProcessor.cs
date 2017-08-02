@@ -10,7 +10,6 @@ using Microsoft.Extensions.DependencyInjection;
 namespace Charisma.SharedKernel.EventProcessor
 {
     public class EventProcessor
-
     {
         private readonly IServiceProvider _serviceProvider;
 
@@ -19,30 +18,19 @@ namespace Charisma.SharedKernel.EventProcessor
             _serviceProvider = serviceProvider;
         }
 
-        public async Task ProcessEventAsync(Type eventType)
+        public async Task ProcessEventAsync<TEvent>()
+            where TEvent : Event
         {
-            using (_serviceProvider.CreateScope())
+            await Task.Run(async () =>
             {
-                var eventsubscriberType = typeof(IEventSubscriber<>).MakeGenericType(eventType);
-                var eventHandlerType = typeof(IEventHandler<>).MakeGenericType(eventType);
-
-                var eventSubscriber = _serviceProvider.GetService(eventsubscriberType);
-                var eventHandler = _serviceProvider.GetService(eventHandlerType);
-
-                if (eventHandler!=null && eventSubscriber!=null)
+                using (_serviceProvider.CreateScope())
                 {
-                    Task awaitable = eventSubscriber.AsDynamic().SubscribeAsync(eventHandler);
-                    await awaitable;
+
+                    var eventSubscriber = _serviceProvider.GetService<IEventSubscriber>();
+                    var mediator = _serviceProvider.GetService<IMediator>();
+                    await eventSubscriber.SubscribeAsync<TEvent>(mediator.Publish);
                 }
-            }
-        }
-
-        public Task ProcessEventsAsync(Type[] eventTypes)
-        {
-            return Task.WhenAll(eventTypes.Select(ProcessEventAsync));
-
-
-
+            });
         }
 
     }

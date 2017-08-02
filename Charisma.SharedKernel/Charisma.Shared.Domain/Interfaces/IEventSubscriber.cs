@@ -1,11 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace Charisma.SharedKernel.Domain.Interfaces
 {
 
-    public interface IEventSubscriber<out TEvent>
-        where TEvent : Event
+    public interface IEventSubscriber
     {
-        Task SubscribeAsync(IEventHandler<TEvent> handler);
+        Task SubscribeAsync<TEvent>(Func<TEvent, Task> handler) where TEvent : Event;
     }
 }

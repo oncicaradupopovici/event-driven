@@ -11,8 +11,7 @@ using Newtonsoft.Json;
 
 namespace Charisma.SharedKernel.Messaging
 {
-    public class KafkaConsumer<TEvent> : IEventSubscriber<TEvent>
-        where TEvent : Event
+    public class KafkaConsumer : IEventSubscriber
     {
         private readonly Consumer<string, string> _consumer;
         private readonly TopicRegistry _topicRegistry;
@@ -35,7 +34,8 @@ namespace Charisma.SharedKernel.Messaging
                 new StringDeserializer(Encoding.UTF8));
         }
 
-        public async Task SubscribeAsync(IEventHandler<TEvent> handler)
+        public async Task SubscribeAsync<TEvent>(Func<TEvent, Task> handler)
+            where TEvent : Event
         {
             var topicName = _topicRegistry.GetTopicForEvent(typeof(TEvent));
 
@@ -57,7 +57,7 @@ namespace Charisma.SharedKernel.Messaging
 
             foreach (var message in GetMessages())
             {
-                await ProcessMessageAsync(message, handler);
+                await ProcessMessageAsync<TEvent>(message, handler);
                 await CommitAsync();
             }
         }
@@ -74,10 +74,11 @@ namespace Charisma.SharedKernel.Messaging
         }
 
 
-        private async Task ProcessMessageAsync(Message<string, string> msg, IEventHandler<TEvent> handler)
+        private async Task ProcessMessageAsync<TEvent>(Message<string, string> msg, Func<TEvent, Task> handler)
+            where TEvent : Event
         {
             var @event = JsonConvert.DeserializeObject<TEvent>(msg.Value);
-            await handler.HandleAsync(@event);
+            await handler(@event);
         }
 
         private async Task CommitAsync()

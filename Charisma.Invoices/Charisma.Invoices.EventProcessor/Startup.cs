@@ -34,9 +34,8 @@ namespace Charisma.Invoices.EventProcessor
         {
             services.AddSingleton(_configuration);
 
-            services.AddTransient<IEventSubscriber<ContractCreated>, KafkaConsumer<ContractCreated>>();
-            services.AddTransient<IEventSubscriber<ContractAmountUpdated>, KafkaConsumer<ContractAmountUpdated>>();
-
+            services.AddSingleton<IMediator, Mediator>();
+            services.AddTransient<IEventSubscriber, KafkaConsumer>();
             services.AddSingleton<TopicRegistry>();
 
             services.AddTransient<IEventHandler<ContractCreated>, ContractEventHandlers>();

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Charisma.SharedKernel.Domain;
 using Charisma.SharedKernel.Domain.Interfaces;
@@ -19,7 +20,7 @@ namespace Charisma.SharedKernel.Data
 
         public async Task<IEnumerable<EventDescriptor>> GetEventsForAggregateAsync(Guid aggregateId)
         {
-            var dbSet = _c.Set<EventDescriptor>();
+            var dbSet = _c.Set<EventDescriptor>().Where(ed => ed.AggregateId == aggregateId);
             return await dbSet.ToListAsync();
         }
 

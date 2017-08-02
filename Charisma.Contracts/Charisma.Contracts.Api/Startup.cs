@@ -41,6 +41,9 @@ namespace Charisma.Contracts.Api
             services.AddMvc();
 
             services.AddSingleton<IConfiguration>(Configuration);
+
+            services.AddSingleton<IMediator, Mediator>();
+
             services.AddScoped<ICommandHandler<CreateContract>, ContractCommandHandlers>();
             services.AddScoped<ICommandHandler<UpdateContractAmount>, ContractCommandHandlers>();
 
@@ -51,14 +54,12 @@ namespace Charisma.Contracts.Api
 
             services.AddScoped<IEventPublisher, KafkaProducer>();
             services.AddScoped<ICommandSender, KafkaProducer>();
+            services.AddSingleton<TopicRegistry>();
 
             services.AddEntityFrameworkSqlServer().AddDbContext<CharismaContractsDbContext>((serviceProvider, options) =>
                 options
                     .UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("Charisma.Contracts.Migrations"))
                     .UseInternalServiceProvider(serviceProvider));
-
-            services.AddSingleton<TopicRegistry>();
-
 
 
         }

@@ -13,14 +13,12 @@ namespace Charisma.Contracts.Api.Controllers
     [Route("api/[controller]")]
     public class ContractsController : Controller
     {
-        private readonly ICommandHandler<CreateContract> _createContractHandler;
-        private readonly ICommandHandler<UpdateContractAmount> _updateContractAmountHandler;
+        private readonly IMediator _mediator;
         private readonly IReadModelRepository<ContractReadModel> _contractReadModelRepository;
 
-        public ContractsController(ICommandHandler<CreateContract> createContractHandler, ICommandHandler<UpdateContractAmount> updateContractAmountHandler, IReadModelRepository<ContractReadModel> contractReadModelRepository)
+        public ContractsController(IMediator mediator, IReadModelRepository<ContractReadModel> contractReadModelRepository)
         {
-            _createContractHandler = createContractHandler;
-            _updateContractAmountHandler = updateContractAmountHandler;
+            _mediator = mediator;
             _contractReadModelRepository = contractReadModelRepository;
         }
 
@@ -43,14 +41,14 @@ namespace Charisma.Contracts.Api.Controllers
         [HttpPost]
         public async Task Post([FromBody]CreateContract command)
         {
-            await _createContractHandler.HandleAsync(command);
+            await _mediator.Send(command);
         }
 
         // PUT api/contracts/7327223E-22EA-48DC-BC44-FFF6AB3B9489
         [HttpPatch("{id}")]
         public async Task Patch(Guid id, [FromBody]UpdateContractAmount command)
         {
-            await _updateContractAmountHandler.HandleAsync(command);
+            await _mediator.Send(command);
         }
 
         // DELETE api/contracts/7327223E-22EA-48DC-BC44-FFF6AB3B9489

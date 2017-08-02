@@ -14,6 +14,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Charisma.SharedKernel.EventProcessor;
+using IMediator = Charisma.SharedKernel.Domain.Interfaces.IMediator;
+using Mediator = Charisma.SharedKernel.Domain.Mediator;
 
 namespace Charisma.Contracts.EventProcessor
 {
@@ -35,9 +37,8 @@ namespace Charisma.Contracts.EventProcessor
         {
             services.AddSingleton(_configuration);
 
-            services.AddTransient<IEventSubscriber<ContractCreated>, KafkaConsumer<ContractCreated>>();
-            services.AddTransient<IEventSubscriber<ContractAmountUpdated>, KafkaConsumer<ContractAmountUpdated>>();
-
+            services.AddSingleton<IMediator, Mediator>();
+            services.AddTransient<IEventSubscriber, KafkaConsumer>();
             services.AddSingleton<TopicRegistry>();
 
             services.AddTransient<IEventHandler<ContractCreated>, ReadModelGenerator>();
@@ -51,14 +52,6 @@ namespace Charisma.Contracts.EventProcessor
                     .UseInternalServiceProvider(serviceProvider));
 
             
-        }
-    }
-
-    public static class Extensions
-    {
-        public static IEnumerable<object> GetRequiredServices(this IServiceProvider provider, Type serviceType)
-        {
-            return (IEnumerable<object>)provider.GetRequiredService(typeof(IEnumerable<>).MakeGenericType(serviceType));
         }
     }
 }
