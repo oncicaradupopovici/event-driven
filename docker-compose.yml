@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  charisma.contracts.api:
+    image: charisma.contracts.api
+    build:
+      context: ./Charisma.Contracts/Charisma.Contracts.Api
+      dockerfile: Dockerfile
+
+  charisma.invoices.api:
+    image: charisma.invoices.api
+    build:
+      context: ./Charisma.Invoices/Charisma.Invoices.Api
+      dockerfile: Dockerfile
+
+  charisma.sharedkernel.eventprocessor:
+    image: charisma.sharedkernel.eventprocessor
+    build:
+      context: ./Charisma.SharedKernel/Charisma.SharedKernel.EventProcessor
+      dockerfile: Dockerfile

@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.Shared.Domain\Charisma.SharedKernel.Domain.csproj" />
+    <ProjectReference Include="..\Charisma.Contracts.PublicContracts\Charisma.Contracts.PublicContracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Events\" />
+  </ItemGroup>
+
+</Project>
