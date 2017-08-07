@@ -19,12 +19,6 @@ namespace Charisma.SharedKernel.Data
             _c = c;
         }
 
-        public Task AddAsync(TEntity entity)
-        {
-            _c.Set<TEntity>().Add(entity);
-            return Task.CompletedTask;
-        }
-
         public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
             var list = await _c.Set<TEntity>().ToListAsync();
@@ -36,9 +30,19 @@ namespace Charisma.SharedKernel.Data
             return _c.Set<TEntity>().FirstOrDefaultAsync(e => e.Id == id);
         }
 
-        public Task SaveAsync()
+        public Task AddAsync(TEntity entity)
         {
+            _c.Set<TEntity>().Add(entity);
             return _c.SaveChangesAsync();
         }
+
+        public async Task UpdateAsync(TEntity entity)
+        {
+            _c.Set<TEntity>().Update(entity);
+            await _c.SaveChangesAsync();
+        }
+
+        
+
     }
 }

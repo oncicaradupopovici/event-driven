@@ -22,12 +22,12 @@ namespace Charisma.Invoices.Domain.Aggregates
 
         public Invoice(Guid id, Guid clientId, Guid? contractId, decimal amount)
         {
-            ApplyChange(new InvoiceCreated(id, clientId, contractId, amount));
+            Emit(new InvoiceCreated(id, clientId, contractId, amount));
         }
 
         public void UpdateAmount(decimal newAmount)
         {
-            ApplyChange(new InvoiceAmountUpdated(this.Id, newAmount));
+            Emit(new InvoiceAmountUpdated(this.Id, newAmount));
         }
 
 

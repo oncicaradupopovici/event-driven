@@ -2,7 +2,9 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Charisma.Contracts.PublicContracts.Events;
+using Charisma.Invoices.Data;
 using Charisma.SharedKernel.Domain;
+using Charisma.SharedKernel.Domain.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 

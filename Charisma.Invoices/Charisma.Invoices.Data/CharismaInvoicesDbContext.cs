@@ -9,6 +9,8 @@ namespace Charisma.Invoices.Data
         //public DbSet<Contract> Contracts { get; set; }
         public DbSet<EventDescriptor> EventDescriptors { get; set; }
 
+        public DbSet<Invoice> Invoices { get; set; }
+
         public CharismaInvoicesDbContext() { }
 
         public CharismaInvoicesDbContext(DbContextOptions<CharismaInvoicesDbContext> options)

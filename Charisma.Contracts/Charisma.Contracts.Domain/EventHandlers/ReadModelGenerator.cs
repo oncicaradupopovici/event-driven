@@ -19,22 +19,32 @@ namespace Charisma.Contracts.Domain.EventHandlers
 
         public async Task HandleAsync(ContractCreated @event)
         {
-            await _contractReadModelRepository.AddAsync(
-                new ContractReadModel(@event.Id, @event.Amount, @event.ClientId, @event.Version));
-
-            await _contractReadModelRepository.SaveAsync();
+            try
+            {
+                await _contractReadModelRepository.AddAsync(
+                    new ContractReadModel(@event.Id, @event.Amount, @event.ClientId, @event.Version));
+            }
+            catch (Exception ex)
+            {
+                //duplicate messages
+            }
         }
 
         public async Task HandleAsync(ContractAmountUpdated @event)
         {
             var e = await _contractReadModelRepository.GetSingleAsync(@event.Id);
-            if(e == null)
-                throw new Exception("Could not find entity in readModel");
 
-            e.Amount = @event.NewAmount;
-            e.Version = @event.Version;
+            //if(e == null)
+            //    throw new Exception("Could not find entity in readModel");
 
-            await _contractReadModelRepository.SaveAsync();
+            if (e != null)
+            {
+                e.Amount = @event.NewAmount;
+                e.Version = @event.Version;
+                await _contractReadModelRepository.UpdateAsync(e);
+            }
+
+            
         }
     }
 }

@@ -37,14 +37,14 @@ namespace Charisma.Contracts.EventProcessor
         {
             services.AddSingleton(_configuration);
 
-            services.AddSingleton<IMediator, Mediator>();
+            services.AddScoped<IMediator, Mediator>();
             services.AddTransient<IEventSubscriber, KafkaConsumer>();
             services.AddSingleton<TopicRegistry>();
 
-            services.AddTransient<IEventHandler<ContractCreated>, ReadModelGenerator>();
-            services.AddTransient<IEventHandler<ContractAmountUpdated>, ReadModelGenerator>();
+            services.AddScoped<IEventHandler<ContractCreated>, ReadModelGenerator>();
+            services.AddScoped<IEventHandler<ContractAmountUpdated>, ReadModelGenerator>();
 
-            services.AddTransient<IReadModelRepository<ContractReadModel>, EfReadModelRepository<ContractReadModel, CharismaContractsDbContext>>();
+            services.AddScoped<IReadModelRepository<ContractReadModel>, EfReadModelRepository<ContractReadModel, CharismaContractsDbContext>>();
 
             services.AddEntityFrameworkSqlServer().AddDbContext<CharismaContractsDbContext>((serviceProvider, options) =>
                 options

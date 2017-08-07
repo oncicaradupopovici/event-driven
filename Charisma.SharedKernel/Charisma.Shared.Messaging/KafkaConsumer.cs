@@ -54,24 +54,32 @@ namespace Charisma.SharedKernel.Messaging
 
             _consumer.Subscribe(topicName);
 
-
-            foreach (var message in GetMessages())
-            {
-                await ProcessMessageAsync<TEvent>(message, handler);
-                await CommitAsync();
-            }
-        }
-
-
-        private IEnumerable<Message<string, string>> GetMessages()
-        {
             while (true)
             {
-                if (_consumer.Consume(out Message<string, string> msg, TimeSpan.FromMilliseconds(100)))
-                    yield return msg;
+                if (_consumer.Consume(out Message<string, string> message, TimeSpan.FromMilliseconds(100)))
+                {
+                    await ProcessMessageAsync<TEvent>(message, handler);
+                    await CommitAsync();
+                }
             }
-            // ReSharper disable once IteratorNeverReturns
+
+            //foreach (var message in GetMessages())
+            //{
+            //    await ProcessMessageAsync<TEvent>(message, handler);
+            //    await CommitAsync();
+            //}
         }
+
+
+        //private IEnumerable<Message<string, string>> GetMessages()
+        //{
+        //    while (true)
+        //    {
+        //        if (_consumer.Consume(out Message<string, string> msg, TimeSpan.FromMilliseconds(100)))
+        //            yield return msg;
+        //    }
+        //    // ReSharper disable once IteratorNeverReturns
+        //}
 
 
         private async Task ProcessMessageAsync<TEvent>(Message<string, string> msg, Func<TEvent, Task> handler)

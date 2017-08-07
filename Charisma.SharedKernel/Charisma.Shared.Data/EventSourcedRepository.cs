@@ -28,6 +28,8 @@ namespace Charisma.SharedKernel.Data
             {
                 await _publisher.PublishAsync(@event);
             }
+
+            aggregate.MarkChangesAsCommitted();
             /////TODO: Transaction required here
         }
 

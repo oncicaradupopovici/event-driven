@@ -22,16 +22,17 @@ namespace Charisma.SharedKernel.Domain
 
         public void LoadsFromHistory(IEnumerable<Event> history)
         {
-            foreach (var e in history) ApplyChange(e, false);
+            foreach (var e in history) ApplyChanges(e, false);
         }
 
-        protected void ApplyChange(Event @event)
+        //https://github.com/d60/Cirqus/wiki/Emit-Apply-Pattern
+        protected void Emit(Event @event)
         {
-            ApplyChange(@event, true);
+            ApplyChanges(@event, true);
         }
 
         // push atomic aggregate changes to local history for further processing (EventStore.SaveEvents)
-        private void ApplyChange(Event @event, bool isNew)
+        private void ApplyChanges(Event @event, bool isNew)
         {
             this.AsDynamic().Apply(@event);
             if (isNew) _changes.Add(@event);

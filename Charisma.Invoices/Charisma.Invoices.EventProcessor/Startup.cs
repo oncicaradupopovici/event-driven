@@ -34,34 +34,26 @@ namespace Charisma.Invoices.EventProcessor
         {
             services.AddSingleton(_configuration);
 
-            services.AddSingleton<IMediator, Mediator>();
+            services.AddScoped<IMediator, Mediator>();
             services.AddTransient<IEventSubscriber, KafkaConsumer>();
             services.AddSingleton<TopicRegistry>();
 
-            services.AddTransient<IEventHandler<ContractCreated>, ContractEventHandlers>();
-            services.AddTransient<IEventHandler<ContractAmountUpdated>, ContractEventHandlers>();
+            services.AddScoped<IEventHandler<ContractCreated>, ContractEventHandlers>();
+            services.AddScoped<IEventHandler<ContractAmountUpdated>, ContractEventHandlers>();
 
-            services.AddTransient<ICrudRepository<Invoice>, EfCrudRepository<Invoice, CharismaInvoicesDbContext>>();
-            services.AddTransient<IEventStore, EventStore>();
-            services.AddTransient<IEventRepository, EfEventRepository<CharismaInvoicesDbContext>>();
+            services.AddScoped<ICrudRepository<Invoice>, EfCrudRepository<Invoice, CharismaInvoicesDbContext>>();
+            services.AddScoped<IEventStore, EventStore>();
+            services.AddScoped<IEventRepository, EfEventRepository<CharismaInvoicesDbContext>>();
             services.AddScoped<IEventPublisher, KafkaProducer>();
-
-
 
             services.AddEntityFrameworkSqlServer().AddDbContext<CharismaInvoicesDbContext>((serviceProvider, options) =>
                 options
                     .UseSqlServer(_configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("Charisma.Invoices.Migrations"))
                     .UseInternalServiceProvider(serviceProvider));
 
-            
+
         }
     }
 
-    public static class Extensions
-    {
-        public static IEnumerable<object> GetRequiredServices(this IServiceProvider provider, Type serviceType)
-        {
-            return (IEnumerable<object>)provider.GetRequiredService(typeof(IEnumerable<>).MakeGenericType(serviceType));
-        }
-    }
+    
 }

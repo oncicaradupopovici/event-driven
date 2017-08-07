@@ -22,12 +22,12 @@ namespace Charisma.Contracts.Domain.Aggregates
 
         public Contract(Guid id, decimal amount, Guid clientId)
         {
-            ApplyChange(new ContractCreated(id, amount, clientId));
+            Emit(new ContractCreated(id, amount, clientId));
         }
 
         public void UpdateAmount(decimal newAmount)
         {
-            ApplyChange(new ContractAmountUpdated(this.Id, newAmount));
+            Emit(new ContractAmountUpdated(this.Id, newAmount));
         }
 
 

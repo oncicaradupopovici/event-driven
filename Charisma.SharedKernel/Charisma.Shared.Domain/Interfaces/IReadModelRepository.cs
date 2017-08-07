@@ -14,6 +14,6 @@ namespace Charisma.SharedKernel.Domain.Interfaces
 
         Task AddAsync(TEntity entity);
 
-        Task SaveAsync();
+        Task UpdateAsync(TEntity entity);
     }
 }

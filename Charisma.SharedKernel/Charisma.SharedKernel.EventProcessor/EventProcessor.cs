@@ -18,16 +18,16 @@ namespace Charisma.SharedKernel.EventProcessor
             _serviceProvider = serviceProvider;
         }
 
-        public async Task ProcessEventAsync<TEvent>()
+        public Task ProcessEventAsync<TEvent>()
             where TEvent : Event
         {
-            await Task.Run(async () =>
+            return Task.Run(async () =>
             {
-                using (_serviceProvider.CreateScope())
+                using (var scope = _serviceProvider.CreateScope())
                 {
 
-                    var eventSubscriber = _serviceProvider.GetService<IEventSubscriber>();
-                    var mediator = _serviceProvider.GetService<IMediator>();
+                    var eventSubscriber = scope.ServiceProvider.GetService<IEventSubscriber>();
+                    var mediator = scope.ServiceProvider.GetService<IMediator>();
                     await eventSubscriber.SubscribeAsync<TEvent>(mediator.Publish);
                 }
             });
