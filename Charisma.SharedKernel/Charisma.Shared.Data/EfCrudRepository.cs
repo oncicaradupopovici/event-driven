@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Charisma.SharedKernel.Core.Interfaces;
 using Charisma.SharedKernel.Domain;
 using Charisma.SharedKernel.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;

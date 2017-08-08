@@ -1,5 +1,5 @@
 ﻿using System;
-using Charisma.SharedKernel.Domain;
+using Charisma.SharedKernel.Core;
 
 namespace Charisma.Contracts.PublicContracts.Events
 {

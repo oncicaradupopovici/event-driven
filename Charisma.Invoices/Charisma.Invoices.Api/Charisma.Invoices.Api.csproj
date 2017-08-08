@@ -19,7 +19,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.Shared.Data\Charisma.SharedKernel.Data.csproj" />
-    <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.Shared.Domain\Charisma.SharedKernel.Domain.csproj" />
     <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.Shared.Messaging\Charisma.SharedKernel.Messaging.csproj" />
     <ProjectReference Include="..\Charisma.Invoices.Data\Charisma.Invoices.Data.csproj" />
     <ProjectReference Include="..\Charisma.Invoices.Domain\Charisma.Invoices.Domain.csproj" />

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Charisma.SharedKernel.Domain
+namespace Charisma.SharedKernel.ReadModel
 {
     public abstract class ReadModelEntity
     {

@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Charisma.Contracts.Domain.Aggregates;
 using Charisma.Contracts.Domain.Commands;
+using Charisma.SharedKernel.Core.Interfaces;
 using Charisma.SharedKernel.Domain.Interfaces;
 
 namespace Charisma.Contracts.Domain.CommandHandlers

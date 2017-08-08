@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Charisma.SharedKernel.Domain.Interfaces
+namespace Charisma.SharedKernel.Core.Interfaces
 {
 
     public interface IEventSubscriber

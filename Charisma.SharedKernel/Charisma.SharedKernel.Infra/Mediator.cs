@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Charisma.SharedKernel.Domain.Interfaces;
+using Charisma.SharedKernel.Core.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Charisma.SharedKernel.Domain
+namespace Charisma.SharedKernel.Core
 {
     public class Mediator : IMediator
     {

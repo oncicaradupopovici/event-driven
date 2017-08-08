@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using Charisma.SharedKernel.Domain;
-using Charisma.SharedKernel.Domain.Interfaces;
+using Charisma.SharedKernel.Core;
+using Charisma.SharedKernel.Core.Interfaces;
 using Confluent.Kafka;
 using Confluent.Kafka.Serialization;
 using Microsoft.Extensions.Configuration;

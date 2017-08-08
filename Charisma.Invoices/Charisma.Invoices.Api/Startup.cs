@@ -19,6 +19,7 @@ using Charisma.SharedKernel.Domain.Interfaces;
 using Charisma.SharedKernel.Messaging;
 using Microsoft.EntityFrameworkCore;
 using Charisma.Invoices.Domain.EventHandlers;
+using Charisma.SharedKernel.Core.Interfaces;
 
 namespace Charisma.Invoices.Api
 {

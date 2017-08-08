@@ -1,4 +1,5 @@
 ﻿using System;
+using Charisma.SharedKernel.Core;
 using Charisma.SharedKernel.Domain;
 
 namespace Charisma.Invoices.Domain.Commands

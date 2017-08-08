@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Charisma.SharedKernel.Domain;
+using Charisma.SharedKernel.ReadModel;
 
-namespace Charisma.Contracts.Domain.ReadModel
+namespace Charisma.Contracts.ReadModel.Entities
 {
     public class ContractReadModel : ReadModelEntity
     {

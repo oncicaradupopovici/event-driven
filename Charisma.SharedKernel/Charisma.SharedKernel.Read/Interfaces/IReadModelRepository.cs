@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Charisma.SharedKernel.Domain.Interfaces
+namespace Charisma.SharedKernel.ReadModel.Interfaces
 {
     public interface IReadModelRepository<TEntity>
         where TEntity : ReadModelEntity

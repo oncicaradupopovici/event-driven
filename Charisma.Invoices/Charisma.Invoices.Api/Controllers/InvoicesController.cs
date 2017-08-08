@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Charisma.Invoices.Domain.Aggregates;
 using Charisma.Invoices.Domain.Commands;
+using Charisma.SharedKernel.Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Charisma.SharedKernel.Domain.Interfaces;
 

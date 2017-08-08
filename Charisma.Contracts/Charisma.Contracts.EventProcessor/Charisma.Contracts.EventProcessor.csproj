@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <PackageReference Include="Confluent.Kafka" Version="0.11.0" />
-    <PackageReference Include="MediatR" Version="3.0.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="1.1.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="1.1.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.2" />

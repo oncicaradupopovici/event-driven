@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using Charisma.SharedKernel.Core;
+using Charisma.SharedKernel.Core.Interfaces;
 using Charisma.SharedKernel.Domain;
 using Charisma.SharedKernel.Domain.Interfaces;
 using Microsoft.Extensions.DependencyInjection;

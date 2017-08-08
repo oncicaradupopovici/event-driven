@@ -4,6 +4,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Charisma.SharedKernel.Domain;
 using Charisma.SharedKernel.Domain.Interfaces;
+using Charisma.SharedKernel.ReadModel;
+using Charisma.SharedKernel.ReadModel.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace Charisma.SharedKernel.Data

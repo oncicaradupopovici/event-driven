@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Charisma.Contracts.Data;
-using Charisma.Contracts.Domain.EventHandlers;
-using Charisma.Contracts.Domain.ReadModel;
 using Charisma.Contracts.PublicContracts.Events;
+using Charisma.Contracts.ReadModel.Entities;
+using Charisma.Contracts.ReadModel.EventHandlers;
+using Charisma.SharedKernel.Core;
+using Charisma.SharedKernel.Core.Interfaces;
 using Charisma.SharedKernel.Data;
 using Charisma.SharedKernel.Domain.Interfaces;
 using Charisma.SharedKernel.Messaging;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Charisma.SharedKernel.EventProcessor;
-using IMediator = Charisma.SharedKernel.Domain.Interfaces.IMediator;
-using Mediator = Charisma.SharedKernel.Domain.Mediator;
+using Charisma.SharedKernel.ReadModel.Interfaces;
 
 namespace Charisma.Contracts.EventProcessor
 {

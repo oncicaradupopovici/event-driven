@@ -7,6 +7,7 @@ using Charisma.Invoices.Domain.Aggregates;
 using Charisma.SharedKernel.Domain.Interfaces;
 using System.Linq;
 using Charisma.Invoices.Domain.Events;
+using Charisma.SharedKernel.Core.Interfaces;
 
 namespace Charisma.Invoices.Domain.EventHandlers
 {

@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Charisma.Contracts.Domain\Charisma.Contracts.Domain.csproj" />
+    <ProjectReference Include="..\Charisma.Contracts.Read\Charisma.Contracts.ReadModel.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Charisma.SharedKernel.Domain;
-using Charisma.SharedKernel.Domain.Interfaces;
+using Charisma.SharedKernel.Core;
+using Charisma.SharedKernel.Core.Interfaces;
 
 namespace Charisma.SharedKernel.Messaging
 {

@@ -5,13 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.Shared.Domain\Charisma.SharedKernel.Domain.csproj" />
+    <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.SharedKernel.Read\Charisma.SharedKernel.ReadModel.csproj" />
     <ProjectReference Include="..\Charisma.Contracts.PublicContracts\Charisma.Contracts.PublicContracts.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="EventHandlers\" />
-    <Folder Include="Events\" />
   </ItemGroup>
 
 </Project>

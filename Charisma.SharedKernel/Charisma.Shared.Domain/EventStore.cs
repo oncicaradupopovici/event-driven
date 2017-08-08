@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Charisma.SharedKernel.Domain.Interfaces;
 using Newtonsoft.Json;
+using Charisma.SharedKernel.Core;
 
 namespace Charisma.SharedKernel.Domain
 {

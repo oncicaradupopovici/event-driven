@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Charisma.Contracts.Domain.CommandHandlers;
 using Charisma.Contracts.Domain.Commands;
-using Charisma.Contracts.Domain.ReadModel;
-using Charisma.SharedKernel.Domain.Interfaces;
+using Charisma.SharedKernel.Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Charisma.SharedKernel.ReadModel.Interfaces;
+using Charisma.Contracts.ReadModel.Entities;
 
 namespace Charisma.Contracts.Api.Controllers
 {

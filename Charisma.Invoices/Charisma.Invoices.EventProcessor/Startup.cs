@@ -9,6 +9,8 @@ using Charisma.Invoices.Domain.Aggregates;
 using Charisma.Invoices.Domain.EventHandlers;
 using Charisma.SharedKernel.Messaging;
 using Charisma.Contracts.PublicContracts.Events;
+using Charisma.SharedKernel.Core;
+using Charisma.SharedKernel.Core.Interfaces;
 using Charisma.SharedKernel.Data;
 using Charisma.SharedKernel.Domain;
 using Charisma.SharedKernel.EventProcessor;

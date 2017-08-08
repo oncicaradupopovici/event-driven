@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using Charisma.Contracts.Domain.Aggregates;
-using Charisma.Contracts.Domain.ReadModel;
 using Microsoft.EntityFrameworkCore;
 using Charisma.SharedKernel.Domain;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Charisma.Contracts.ReadModel.Entities;
 
 namespace Charisma.Contracts.Data
 {

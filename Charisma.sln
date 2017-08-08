@@ -39,9 +39,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Invoices.Migration
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Invoices.Api", "Charisma.Invoices\Charisma.Invoices.Api\Charisma.Invoices.Api.csproj", "{044FAB36-1831-4A7E-8EE4-E4C5ED5D446F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Charisma.SharedKernel.EventProcessor", "Charisma.SharedKernel\Charisma.SharedKernel.EventProcessor\Charisma.SharedKernel.EventProcessor.csproj", "{86157913-CF70-47FC-8B6A-6B477BC08F13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.SharedKernel.EventProcessor", "Charisma.SharedKernel\Charisma.SharedKernel.EventProcessor\Charisma.SharedKernel.EventProcessor.csproj", "{86157913-CF70-47FC-8B6A-6B477BC08F13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Charisma.Invoices.EventProcessor", "Charisma.Invoices\Charisma.Invoices.EventProcessor\Charisma.Invoices.EventProcessor.csproj", "{35467B94-027E-4565-AD0E-772D3FFC6394}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Invoices.EventProcessor", "Charisma.Invoices\Charisma.Invoices.EventProcessor\Charisma.Invoices.EventProcessor.csproj", "{35467B94-027E-4565-AD0E-772D3FFC6394}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Contracts.ReadModel", "Charisma.Contracts\Charisma.Contracts.Read\Charisma.Contracts.ReadModel.csproj", "{DB72B411-536C-4FD2-A8E3-D57803F87DF9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.SharedKernel.ReadModel", "Charisma.SharedKernel\Charisma.SharedKernel.Read\Charisma.SharedKernel.ReadModel.csproj", "{BAC00A4D-9F34-42CC-A53A-E316A4098A06}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.SharedKernel.Core", "Charisma.SharedKernel\Charisma.SharedKernel.Infra\Charisma.SharedKernel.Core.csproj", "{9A797C8B-4F0C-46AD-B4EA-E8905E8935EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -113,6 +119,18 @@ Global
 		{35467B94-027E-4565-AD0E-772D3FFC6394}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35467B94-027E-4565-AD0E-772D3FFC6394}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35467B94-027E-4565-AD0E-772D3FFC6394}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB72B411-536C-4FD2-A8E3-D57803F87DF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB72B411-536C-4FD2-A8E3-D57803F87DF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB72B411-536C-4FD2-A8E3-D57803F87DF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB72B411-536C-4FD2-A8E3-D57803F87DF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAC00A4D-9F34-42CC-A53A-E316A4098A06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAC00A4D-9F34-42CC-A53A-E316A4098A06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAC00A4D-9F34-42CC-A53A-E316A4098A06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAC00A4D-9F34-42CC-A53A-E316A4098A06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A797C8B-4F0C-46AD-B4EA-E8905E8935EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A797C8B-4F0C-46AD-B4EA-E8905E8935EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A797C8B-4F0C-46AD-B4EA-E8905E8935EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A797C8B-4F0C-46AD-B4EA-E8905E8935EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -122,7 +140,6 @@ Global
 		{13EE0280-753F-434A-8400-9B5BF041C51C} = {ACEF76D4-9A1D-4896-B431-99944A2496FB}
 		{FE2000B7-B4E2-4492-A5C2-E71BD1C44E0C} = {9420C433-2A2D-48DD-A1EA-3BE61F3449AB}
 		{B17B6455-F94B-4970-BD3E-2497E0586CC5} = {ACEF76D4-9A1D-4896-B431-99944A2496FB}
-		{F80BA17A-5906-4008-B2E1-804D3E126852} = {ACEF76D4-9A1D-4896-B431-99944A2496FB}
 		{0B4A1FCF-6977-4DC2-922B-6FCB03160391} = {9420C433-2A2D-48DD-A1EA-3BE61F3449AB}
 		{22529D2C-BA76-4D48-9233-4BBD6A121C4C} = {ACEF76D4-9A1D-4896-B431-99944A2496FB}
 		{7915859C-6119-4030-808B-411E8FC7B5DC} = {ACEF76D4-9A1D-4896-B431-99944A2496FB}
@@ -134,5 +151,8 @@ Global
 		{044FAB36-1831-4A7E-8EE4-E4C5ED5D446F} = {C500D16A-E376-4CEB-844C-13D41DCA2CE0}
 		{86157913-CF70-47FC-8B6A-6B477BC08F13} = {9420C433-2A2D-48DD-A1EA-3BE61F3449AB}
 		{35467B94-027E-4565-AD0E-772D3FFC6394} = {C500D16A-E376-4CEB-844C-13D41DCA2CE0}
+		{DB72B411-536C-4FD2-A8E3-D57803F87DF9} = {ACEF76D4-9A1D-4896-B431-99944A2496FB}
+		{BAC00A4D-9F34-42CC-A53A-E316A4098A06} = {9420C433-2A2D-48DD-A1EA-3BE61F3449AB}
+		{9A797C8B-4F0C-46AD-B4EA-E8905E8935EB} = {9420C433-2A2D-48DD-A1EA-3BE61F3449AB}
 	EndGlobalSection
 EndGlobal

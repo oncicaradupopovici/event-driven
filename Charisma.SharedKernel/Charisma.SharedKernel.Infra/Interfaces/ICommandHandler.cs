@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Charisma.SharedKernel.Domain.Interfaces
+namespace Charisma.SharedKernel.Core.Interfaces
 {
 
     public interface ICommandHandler<in TCommand> where TCommand : Command

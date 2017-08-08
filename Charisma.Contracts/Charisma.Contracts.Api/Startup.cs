@@ -11,12 +11,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Charisma.Contracts.Data;
-using Charisma.Contracts.Domain.ReadModel;
+using Charisma.Contracts.ReadModel.Entities;
+using Charisma.SharedKernel.Core;
+using Charisma.SharedKernel.Core.Interfaces;
 using Charisma.SharedKernel.Data;
 using Microsoft.EntityFrameworkCore;
 using Charisma.SharedKernel.Domain.Interfaces;
 using Charisma.SharedKernel.Domain;
 using Charisma.SharedKernel.Messaging;
+using Charisma.SharedKernel.ReadModel.Interfaces;
 
 namespace Charisma.Contracts.Api
 {

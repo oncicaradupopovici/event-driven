@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Charisma.SharedKernel.Domain
+namespace Charisma.SharedKernel.Core
 {
     public class Event : Message
     {

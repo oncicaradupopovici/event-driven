@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Charisma.Invoices.Domain.Aggregates;
 using Charisma.Invoices.Domain.Commands;
+using Charisma.SharedKernel.Core.Interfaces;
 using Charisma.SharedKernel.Domain.Interfaces;
 
 namespace Charisma.Invoices.Domain.CommandHandlers

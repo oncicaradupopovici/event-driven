@@ -22,6 +22,7 @@
     <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.Shared.Messaging\Charisma.SharedKernel.Messaging.csproj" />
     <ProjectReference Include="..\Charisma.Contracts.Data\Charisma.Contracts.Data.csproj" />
     <ProjectReference Include="..\Charisma.Contracts.Domain\Charisma.Contracts.Domain.csproj" />
+    <ProjectReference Include="..\Charisma.Contracts.Read\Charisma.Contracts.ReadModel.csproj" />
   </ItemGroup>
 
 </Project>
