@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 using Charisma.Contracts.PublicContracts.Events;
 using Charisma.Invoices.Domain.Aggregates;
-using Charisma.SharedKernel.Domain.Interfaces;
-using System.Linq;
-using Charisma.Invoices.Domain.Events;
 using Charisma.SharedKernel.Core.Interfaces;
+using Charisma.SharedKernel.Domain.Interfaces;
 
-namespace Charisma.Invoices.Domain.EventHandlers
+namespace Charisma.Invoices.Application.EventHandlers
 {
     public class ContractEventHandlers :
         IEventHandler<ContractCreated>,

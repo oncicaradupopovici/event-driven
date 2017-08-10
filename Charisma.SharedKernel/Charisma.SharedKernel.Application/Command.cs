@@ -1,6 +1,7 @@
 ﻿using System;
+using Charisma.SharedKernel.Core;
 
-namespace Charisma.SharedKernel.Core
+namespace Charisma.SharedKernel.Application
 {
     public class Command : Message
     {

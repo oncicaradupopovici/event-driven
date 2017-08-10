@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Charisma.SharedKernel.Domain;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Charisma.Contracts.ReadModel.Entities;
+using Charisma.SharedKernel.Core;
 
 namespace Charisma.Contracts.Data
 {

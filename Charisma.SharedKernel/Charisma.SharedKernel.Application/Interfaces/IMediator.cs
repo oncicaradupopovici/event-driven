@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
+using Charisma.SharedKernel.Core;
 
-namespace Charisma.SharedKernel.Core.Interfaces
+namespace Charisma.SharedKernel.Application.Interfaces
 {
     public interface IMediator
     {

@@ -1,8 +1,7 @@
 ﻿using System;
-using Charisma.SharedKernel.Core;
-using Charisma.SharedKernel.Domain;
+using Charisma.SharedKernel.Application;
 
-namespace Charisma.Invoices.Domain.Commands
+namespace Charisma.Invoices.Application.Commands
 {
     public class CreateInvoice : Command
     {

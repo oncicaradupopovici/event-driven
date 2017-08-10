@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Charisma.SharedKernel.ReadModel.Interfaces;
 using Charisma.Contracts.PublicContracts.Events;
-using Charisma.Contracts.ReadModel.Entities;
 using Charisma.SharedKernel.Core.Interfaces;
+using Charisma.SharedKernel.ReadModel.Interfaces;
+using Charisma.Contracts.ReadModel.Entities;
 
-namespace Charisma.Contracts.ReadModel.EventHandlers
+namespace Charisma.Contracts.Application.EventHandlers
 {
     public class ReadModelGenerator: 
         IEventHandler<ContractCreated>, 

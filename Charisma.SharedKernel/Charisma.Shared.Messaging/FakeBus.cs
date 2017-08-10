@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Charisma.SharedKernel.Application;
+using Charisma.SharedKernel.Application.Interfaces;
 using Charisma.SharedKernel.Core;
 using Charisma.SharedKernel.Core.Interfaces;
 

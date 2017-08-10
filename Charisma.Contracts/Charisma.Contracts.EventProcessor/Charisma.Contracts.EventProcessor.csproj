@@ -16,11 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.Shared.Data\Charisma.SharedKernel.Data.csproj" />
-    <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.Shared.Messaging\Charisma.SharedKernel.Messaging.csproj" />
     <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.SharedKernel.EventProcessor\Charisma.SharedKernel.EventProcessor.csproj" />
-    <ProjectReference Include="..\Charisma.Contracts.Data\Charisma.Contracts.Data.csproj" />
-    <ProjectReference Include="..\Charisma.Contracts.Domain\Charisma.Contracts.Domain.csproj" />
+    <ProjectReference Include="..\Charisma.Contracts.Application\Charisma.Contracts.Application.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Charisma.Contracts.Application.Commands;
 using Charisma.Contracts.Domain.Aggregates;
-using Charisma.Contracts.Domain.Commands;
-using Charisma.SharedKernel.Core.Interfaces;
+using Charisma.SharedKernel.Application.Interfaces;
 using Charisma.SharedKernel.Domain.Interfaces;
 
-namespace Charisma.Contracts.Domain.CommandHandlers
+namespace Charisma.Contracts.Application.CommandHandlers
 {
     public class ContractCommandHandlers : ICommandHandler<CreateContract>, ICommandHandler<UpdateContractAmount>
     {

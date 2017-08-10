@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.SharedKernel.Read\Charisma.SharedKernel.ReadModel.csproj" />
-    <ProjectReference Include="..\Charisma.Contracts.PublicContracts\Charisma.Contracts.PublicContracts.csproj" />
   </ItemGroup>
 
 </Project>

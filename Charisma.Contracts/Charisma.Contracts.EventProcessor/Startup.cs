@@ -5,7 +5,8 @@ using System.Text;
 using Charisma.Contracts.Data;
 using Charisma.Contracts.PublicContracts.Events;
 using Charisma.Contracts.ReadModel.Entities;
-using Charisma.Contracts.ReadModel.EventHandlers;
+using Charisma.SharedKernel.Application;
+using Charisma.SharedKernel.Application.Interfaces;
 using Charisma.SharedKernel.Core;
 using Charisma.SharedKernel.Core.Interfaces;
 using Charisma.SharedKernel.Data;
@@ -16,6 +17,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Charisma.SharedKernel.EventProcessor;
 using Charisma.SharedKernel.ReadModel.Interfaces;
+using Charisma.Contracts.Application.EventHandlers;
+using Charisma.Contracts.Application.Extensions;
 
 namespace Charisma.Contracts.EventProcessor
 {
@@ -36,22 +39,9 @@ namespace Charisma.Contracts.EventProcessor
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton(_configuration);
+            services.AddApplication();
 
-            services.AddScoped<IMediator, Mediator>();
-            services.AddTransient<IEventSubscriber, KafkaConsumer>();
-            services.AddSingleton<TopicRegistry>();
 
-            services.AddScoped<IEventHandler<ContractCreated>, ReadModelGenerator>();
-            services.AddScoped<IEventHandler<ContractAmountUpdated>, ReadModelGenerator>();
-
-            services.AddScoped<IReadModelRepository<ContractReadModel>, EfReadModelRepository<ContractReadModel, CharismaContractsDbContext>>();
-
-            services.AddEntityFrameworkSqlServer().AddDbContext<CharismaContractsDbContext>((serviceProvider, options) =>
-                options
-                    .UseSqlServer(_configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("Charisma.Contracts.Migrations"))
-                    .UseInternalServiceProvider(serviceProvider));
-
-            
         }
     }
 }

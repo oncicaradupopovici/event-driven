@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Charisma.SharedKernel.Domain.Interfaces;
+using Charisma.SharedKernel.Core.Interfaces;
 using Newtonsoft.Json;
-using Charisma.SharedKernel.Core;
 
-namespace Charisma.SharedKernel.Domain
+namespace Charisma.SharedKernel.Core
 {
     public class EventDescriptor
     {

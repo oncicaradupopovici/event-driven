@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.Shared.Domain\Charisma.SharedKernel.Domain.csproj" />
+    <ProjectReference Include="..\Charisma.SharedKernel.Infra\Charisma.SharedKernel.Core.csproj" />
   </ItemGroup>
 
 </Project>

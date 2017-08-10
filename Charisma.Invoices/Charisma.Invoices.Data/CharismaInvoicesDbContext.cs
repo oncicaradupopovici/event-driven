@@ -1,4 +1,5 @@
 ﻿using Charisma.Invoices.Domain.Aggregates;
+using Charisma.SharedKernel.Core;
 using Charisma.SharedKernel.Domain;
 using Microsoft.EntityFrameworkCore;
 

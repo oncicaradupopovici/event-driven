@@ -8,6 +8,7 @@ using Charisma.SharedKernel.Core.Interfaces;
 using Charisma.SharedKernel.Domain;
 using Charisma.SharedKernel.Domain.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
+using Charisma.SharedKernel.Application.Interfaces;
 
 namespace Charisma.SharedKernel.EventProcessor
 {

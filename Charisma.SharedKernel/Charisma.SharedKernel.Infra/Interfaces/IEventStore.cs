@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Charisma.SharedKernel.Core;
 
-namespace Charisma.SharedKernel.Domain.Interfaces
+namespace Charisma.SharedKernel.Core.Interfaces
 {
     public interface IEventStore
     {

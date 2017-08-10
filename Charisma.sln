@@ -49,6 +49,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.SharedKernel.ReadM
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.SharedKernel.Core", "Charisma.SharedKernel\Charisma.SharedKernel.Infra\Charisma.SharedKernel.Core.csproj", "{9A797C8B-4F0C-46AD-B4EA-E8905E8935EB}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Contracts.Application", "Charisma.Contracts\Charisma.Contracts.Application\Charisma.Contracts.Application.csproj", "{8FAFEC4E-D390-40EC-9D26-1A1107F1C02C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.SharedKernel.Application", "Charisma.SharedKernel\Charisma.SharedKernel.Application\Charisma.SharedKernel.Application.csproj", "{2026CC59-AB05-49B0-9699-5B99085EE2B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Charisma.Invoices.Application", "Charisma.Invoices\Charisma.Invoices.Application\Charisma.Invoices.Application.csproj", "{7903F950-20A7-47BC-94FC-55E9E6E46530}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -131,6 +137,18 @@ Global
 		{9A797C8B-4F0C-46AD-B4EA-E8905E8935EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A797C8B-4F0C-46AD-B4EA-E8905E8935EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A797C8B-4F0C-46AD-B4EA-E8905E8935EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FAFEC4E-D390-40EC-9D26-1A1107F1C02C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FAFEC4E-D390-40EC-9D26-1A1107F1C02C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FAFEC4E-D390-40EC-9D26-1A1107F1C02C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FAFEC4E-D390-40EC-9D26-1A1107F1C02C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2026CC59-AB05-49B0-9699-5B99085EE2B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2026CC59-AB05-49B0-9699-5B99085EE2B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2026CC59-AB05-49B0-9699-5B99085EE2B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2026CC59-AB05-49B0-9699-5B99085EE2B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7903F950-20A7-47BC-94FC-55E9E6E46530}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7903F950-20A7-47BC-94FC-55E9E6E46530}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7903F950-20A7-47BC-94FC-55E9E6E46530}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7903F950-20A7-47BC-94FC-55E9E6E46530}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -154,5 +172,8 @@ Global
 		{DB72B411-536C-4FD2-A8E3-D57803F87DF9} = {ACEF76D4-9A1D-4896-B431-99944A2496FB}
 		{BAC00A4D-9F34-42CC-A53A-E316A4098A06} = {9420C433-2A2D-48DD-A1EA-3BE61F3449AB}
 		{9A797C8B-4F0C-46AD-B4EA-E8905E8935EB} = {9420C433-2A2D-48DD-A1EA-3BE61F3449AB}
+		{8FAFEC4E-D390-40EC-9D26-1A1107F1C02C} = {ACEF76D4-9A1D-4896-B431-99944A2496FB}
+		{2026CC59-AB05-49B0-9699-5B99085EE2B9} = {9420C433-2A2D-48DD-A1EA-3BE61F3449AB}
+		{7903F950-20A7-47BC-94FC-55E9E6E46530} = {C500D16A-E376-4CEB-844C-13D41DCA2CE0}
 	EndGlobalSection
 EndGlobal

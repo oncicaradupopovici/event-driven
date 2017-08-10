@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
+using Charisma.Invoices.Application.Commands;
 using Charisma.Invoices.Domain.Aggregates;
-using Charisma.Invoices.Domain.Commands;
-using Charisma.SharedKernel.Core.Interfaces;
+using Charisma.SharedKernel.Application.Interfaces;
 using Charisma.SharedKernel.Domain.Interfaces;
 
-namespace Charisma.Invoices.Domain.CommandHandlers
+namespace Charisma.Invoices.Application.CommandHandlers
 {
     public class InvoiceCommandHandlers : ICommandHandler<CreateInvoice>, ICommandHandler<UpdateInvoiceAmount>
     {

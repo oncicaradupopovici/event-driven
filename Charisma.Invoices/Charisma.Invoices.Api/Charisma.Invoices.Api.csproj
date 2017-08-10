@@ -18,10 +18,7 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.Shared.Data\Charisma.SharedKernel.Data.csproj" />
-    <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.Shared.Messaging\Charisma.SharedKernel.Messaging.csproj" />
-    <ProjectReference Include="..\Charisma.Invoices.Data\Charisma.Invoices.Data.csproj" />
-    <ProjectReference Include="..\Charisma.Invoices.Domain\Charisma.Invoices.Domain.csproj" />
+    <ProjectReference Include="..\Charisma.Invoices.Application\Charisma.Invoices.Application.csproj" />
   </ItemGroup>
 
 </Project>

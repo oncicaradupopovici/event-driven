@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Charisma.SharedKernel.Domain.Interfaces
+namespace Charisma.SharedKernel.Core.Interfaces
 {
     public interface IEventRepository
     {

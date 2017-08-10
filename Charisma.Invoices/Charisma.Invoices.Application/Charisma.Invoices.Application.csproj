@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Charisma.Contracts\Charisma.Contracts.PublicContracts\Charisma.Contracts.PublicContracts.csproj" />
+    <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.Shared.Messaging\Charisma.SharedKernel.Messaging.csproj" />
+    <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.SharedKernel.Application\Charisma.SharedKernel.Application.csproj" />
+    <ProjectReference Include="..\Charisma.Invoices.Data\Charisma.Invoices.Data.csproj" />
+    <ProjectReference Include="..\Charisma.Invoices.Domain\Charisma.Invoices.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

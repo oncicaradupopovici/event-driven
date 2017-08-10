@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Charisma.SharedKernel.Application\Charisma.SharedKernel.Application.csproj" />
     <ProjectReference Include="..\Charisma.SharedKernel.Infra\Charisma.SharedKernel.Core.csproj" />
   </ItemGroup>
 

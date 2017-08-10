@@ -8,6 +8,8 @@ using Confluent.Kafka;
 using Confluent.Kafka.Serialization;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
+using Charisma.SharedKernel.Application.Interfaces;
+using Charisma.SharedKernel.Application;
 
 namespace Charisma.SharedKernel.Messaging
 {

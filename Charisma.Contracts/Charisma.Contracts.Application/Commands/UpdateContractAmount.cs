@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Charisma.SharedKernel.Core;
-using Charisma.SharedKernel.Domain;
+using Charisma.SharedKernel.Application;
 
-namespace Charisma.Contracts.Domain.Commands
+namespace Charisma.Contracts.Application.Commands
 {
     public class UpdateContractAmount : Command
     {

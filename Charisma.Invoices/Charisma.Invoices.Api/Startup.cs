@@ -1,25 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.Linq;
-using System.Threading.Tasks;
-using Charisma.Contracts.PublicContracts.Events;
-using Charisma.Invoices.Data;
-using Charisma.Invoices.Domain.Aggregates;
-using Charisma.Invoices.Domain.CommandHandlers;
-using Charisma.Invoices.Domain.Commands;
-using Charisma.SharedKernel.Data;
-using Charisma.SharedKernel.Domain;
+﻿using Charisma.Invoices.Application.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Charisma.SharedKernel.Domain.Interfaces;
-using Charisma.SharedKernel.Messaging;
-using Microsoft.EntityFrameworkCore;
-using Charisma.Invoices.Domain.EventHandlers;
-using Charisma.SharedKernel.Core.Interfaces;
 
 namespace Charisma.Invoices.Api
 {
@@ -42,23 +26,8 @@ namespace Charisma.Invoices.Api
         {
             // Add framework services.
             services.AddMvc();
-
             services.AddSingleton<IConfiguration>(Configuration);
-            services.AddScoped<ICommandHandler<CreateInvoice>, InvoiceCommandHandlers>();
-            services.AddScoped<ICommandHandler<UpdateInvoiceAmount>, InvoiceCommandHandlers>();
-
-            services.AddScoped<ICrudRepository<Invoice>, EfCrudRepository<Invoice, CharismaInvoicesDbContext>>();
-            services.AddScoped<IEventStore, EventStore>();
-            services.AddScoped<IEventRepository, EfEventRepository<CharismaInvoicesDbContext>>();           
-            services.AddScoped<IEventPublisher, KafkaProducer>();
-            services.AddSingleton<TopicRegistry>();
-
-            services.AddEntityFrameworkSqlServer().AddDbContext<CharismaInvoicesDbContext>((serviceProvider, options) =>
-                options
-                    .UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("Charisma.Invoices.Migrations"))
-                    .UseInternalServiceProvider(serviceProvider));
-
-            
+            services.AddApplication();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
