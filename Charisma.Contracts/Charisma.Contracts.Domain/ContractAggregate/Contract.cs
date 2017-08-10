@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Charisma.Contracts.PublicContracts.Events;
 using Charisma.SharedKernel.Domain;
 
-namespace Charisma.Contracts.Domain.Aggregates
+namespace Charisma.Contracts.Domain.ContractAggregate
 {
-    public class Contract : AggregateRoot
+    public class Contract : EventSourcedAggregateRoot
     {
         public decimal Amount { get; private set; }
 
@@ -15,7 +12,6 @@ namespace Charisma.Contracts.Domain.Aggregates
         //needed 4 repository should be private
         public Contract()
         {
-
         }
 
 

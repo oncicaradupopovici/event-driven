@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Charisma.Contracts.PublicContracts.Events;
+﻿using Charisma.Contracts.PublishedLanguage.Events;
 using Charisma.Invoices.Application.CommandHandlers;
 using Charisma.Invoices.Application.Commands;
 using Charisma.Invoices.Application.EventHandlers;

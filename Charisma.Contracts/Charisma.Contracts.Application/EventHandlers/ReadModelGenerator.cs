@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Charisma.Contracts.PublicContracts.Events;
 using Charisma.SharedKernel.Core.Interfaces;
 using Charisma.SharedKernel.ReadModel.Interfaces;
 using Charisma.Contracts.ReadModel.Entities;
+using Charisma.Contracts.PublishedLanguage.Events;
 
 namespace Charisma.Contracts.Application.EventHandlers
 {

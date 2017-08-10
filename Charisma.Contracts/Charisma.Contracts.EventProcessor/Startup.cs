@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Charisma.Contracts.Data;
-using Charisma.Contracts.PublicContracts.Events;
 using Charisma.Contracts.ReadModel.Entities;
 using Charisma.SharedKernel.Application;
 using Charisma.SharedKernel.Application.Interfaces;

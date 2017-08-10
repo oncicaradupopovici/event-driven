@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Charisma.SharedKernel.Core;
+using System.Text;
 
 namespace Charisma.SharedKernel.Domain
 {
-    public abstract class AggregateRoot : Entity
+    public class Entity
     {
-        
+        public Guid Id { get; protected set; }
     }
 }

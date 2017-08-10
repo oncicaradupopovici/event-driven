@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Charisma.Contracts.PublicContracts.Events;
+using Charisma.Contracts.PublishedLanguage.Events;
 using Charisma.Invoices.Data;
 using Charisma.SharedKernel.Domain;
 using Charisma.SharedKernel.Domain.Interfaces;

@@ -2,7 +2,7 @@
 using Charisma.Contracts.Application.Commands;
 using Charisma.Contracts.Application.EventHandlers;
 using Charisma.Contracts.Data.Extensions;
-using Charisma.Contracts.PublicContracts.Events;
+using Charisma.Contracts.PublishedLanguage.Events;
 using Charisma.SharedKernel.Application;
 using Charisma.SharedKernel.Application.Interfaces;
 using Charisma.SharedKernel.Core.Interfaces;

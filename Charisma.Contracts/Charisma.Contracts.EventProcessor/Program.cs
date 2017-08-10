@@ -9,9 +9,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Charisma.Contracts.PublicContracts.Events;
 using System;
 using System.Linq;
+using Charisma.Contracts.PublishedLanguage.Events;
 
 namespace Charisma.Contracts.EventProcessor
 {

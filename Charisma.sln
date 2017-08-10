@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Charisma.SharedKernel", "Charisma.SharedKernel", "{9420C433-2A2D-48DD-A1EA-3BE61F3449AB}"
 EndProject
@@ -31,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Contracts.Migratio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Invoices.Domain", "Charisma.Invoices\Charisma.Invoices.Domain\Charisma.Invoices.Domain.csproj", "{A59E12D6-5979-4105-8089-6EB7BB7945A5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Contracts.PublicContracts", "Charisma.Contracts\Charisma.Contracts.PublicContracts\Charisma.Contracts.PublicContracts.csproj", "{29A9FD7A-EDFB-4E30-B387-D8079AB22BC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Contracts.PublishedLanguage", "Charisma.Contracts\Charisma.Contracts.PublicContracts\Charisma.Contracts.PublishedLanguage.csproj", "{29A9FD7A-EDFB-4E30-B387-D8079AB22BC9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Invoices.Data", "Charisma.Invoices\Charisma.Invoices.Data\Charisma.Invoices.Data.csproj", "{E2EF834A-284B-4C10-AF04-0A37FA34E425}"
 EndProject
@@ -53,7 +53,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Contracts.Applicat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.SharedKernel.Application", "Charisma.SharedKernel\Charisma.SharedKernel.Application\Charisma.SharedKernel.Application.csproj", "{2026CC59-AB05-49B0-9699-5B99085EE2B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Charisma.Invoices.Application", "Charisma.Invoices\Charisma.Invoices.Application\Charisma.Invoices.Application.csproj", "{7903F950-20A7-47BC-94FC-55E9E6E46530}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Invoices.Application", "Charisma.Invoices\Charisma.Invoices.Application\Charisma.Invoices.Application.csproj", "{7903F950-20A7-47BC-94FC-55E9E6E46530}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

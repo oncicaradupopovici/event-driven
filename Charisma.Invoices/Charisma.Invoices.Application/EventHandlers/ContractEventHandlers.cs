@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Charisma.Contracts.PublicContracts.Events;
-using Charisma.Invoices.Domain.Aggregates;
+using Charisma.Invoices.Domain.InvoiceAggregate;
 using Charisma.SharedKernel.Core.Interfaces;
 using Charisma.SharedKernel.Domain.Interfaces;
+using Charisma.Contracts.PublishedLanguage.Events;
 
 namespace Charisma.Invoices.Application.EventHandlers
 {

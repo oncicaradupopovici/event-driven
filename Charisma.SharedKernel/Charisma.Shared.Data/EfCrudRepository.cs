@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Charisma.SharedKernel.Data
 {
-    public class EfCrudRepository<TEntity, TContext> : ICrudRepository<TEntity>
-        where TEntity : AggregateRoot
+    public class EfCrudRepository<TAggregateRoot, TContext> : ICrudRepository<TAggregateRoot>
+        where TAggregateRoot : EventedAggregateRoot
         where TContext : DbContext
     {
         private readonly TContext _c;
@@ -26,39 +26,39 @@ namespace Charisma.SharedKernel.Data
             _publisher = publisher;
         }
 
-        public async Task AddAsync(TEntity entity)
+        public async Task AddAsync(TAggregateRoot entity)
         {
-            _c.Set<TEntity>().Add(entity);
+            _c.Set<TAggregateRoot>().Add(entity);
             
             await SaveAndPublishEventsAsync(entity);
         }
 
-        public async Task UpdateAsync(TEntity entity)
+        public async Task UpdateAsync(TAggregateRoot entity)
         {
-            _c.Set<TEntity>().Update(entity);
+            _c.Set<TAggregateRoot>().Update(entity);
             await SaveAndPublishEventsAsync(entity);
         }
 
 
 
-        public async Task<IEnumerable<TEntity>> GetAllAsync()
+        public async Task<IEnumerable<TAggregateRoot>> GetAllAsync()
         {
-            var list = await _c.Set<TEntity>().ToListAsync();
+            var list = await _c.Set<TAggregateRoot>().ToListAsync();
             return list;
         }
 
-        public async Task<IEnumerable<TEntity>> GetWhereAsync(Expression<Func<TEntity, bool>> predicate)
+        public async Task<IEnumerable<TAggregateRoot>> GetWhereAsync(Expression<Func<TAggregateRoot, bool>> predicate)
         {
-            var result = await _c.Set<TEntity>().Where(predicate).ToListAsync();
+            var result = await _c.Set<TAggregateRoot>().Where(predicate).ToListAsync();
             return result;
         }
 
-        public Task<TEntity> GetSingleAsync(Guid id)
+        public Task<TAggregateRoot> GetSingleAsync(Guid id)
         {
-            return _c.Set<TEntity>().FirstOrDefaultAsync(e => e.Id == id);
+            return _c.Set<TAggregateRoot>().FirstOrDefaultAsync(e => e.Id == id);
         }
 
-        private async Task SaveAndPublishEventsAsync(AggregateRoot aggregate)
+        private async Task SaveAndPublishEventsAsync(EventedAggregateRoot aggregate)
         {
             var events = aggregate.GetUncommittedChanges().ToList();
 

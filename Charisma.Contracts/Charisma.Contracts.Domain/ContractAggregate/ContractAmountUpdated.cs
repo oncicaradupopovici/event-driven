@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using Charisma.SharedKernel.Core;
 
-namespace Charisma.Contracts.PublishedLanguage.Events
+namespace Charisma.Contracts.Domain.ContractAggregate
 {
-    public class ContractAmountUpdated : Event
+    internal class ContractAmountUpdated : Event
     {
         public decimal NewAmount { get; }
 

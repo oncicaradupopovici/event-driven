@@ -1,4 +1,4 @@
-﻿using Charisma.Contracts.Domain.Aggregates;
+﻿using Charisma.Contracts.Domain.ContractAggregate;
 using Charisma.Contracts.ReadModel.Entities;
 using Charisma.SharedKernel.Core;
 using Charisma.SharedKernel.Core.Interfaces;

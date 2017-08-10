@@ -7,7 +7,8 @@ using Charisma.SharedKernel.Domain.Interfaces;
 
 namespace Charisma.SharedKernel.Data
 {
-    public class EventSourcedRepository<T> : IEventSourcedRepository<T> where T : AggregateRoot, new() //shortcut you can do as you see fit with new()
+    public class EventSourcedRepository<T> : IEventSourcedRepository<T> 
+        where T : EventSourcedAggregateRoot, new() //shortcut you can do as you see fit with new()
     {
         private readonly IEventStore _eventStore;
         private readonly IEventPublisher _publisher;
@@ -18,7 +19,7 @@ namespace Charisma.SharedKernel.Data
             _publisher = publisher;
         }
 
-        public async Task SaveAsync(AggregateRoot aggregate, int? expectedVersion = null)
+        public async Task SaveAsync(EventSourcedAggregateRoot aggregate, int? expectedVersion = null)
         {
             var events = aggregate.GetUncommittedChanges().ToList();
 

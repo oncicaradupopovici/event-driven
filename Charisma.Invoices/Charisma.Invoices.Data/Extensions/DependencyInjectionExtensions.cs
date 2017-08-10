@@ -1,4 +1,4 @@
-﻿using Charisma.Invoices.Domain.Aggregates;
+﻿using Charisma.Invoices.Domain.InvoiceAggregate;
 using Charisma.SharedKernel.Core;
 using Charisma.SharedKernel.Core.Interfaces;
 using Charisma.SharedKernel.Data;

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Charisma.Contracts.Domain.Aggregates;
 using Microsoft.EntityFrameworkCore;
 using Charisma.SharedKernel.Domain;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;

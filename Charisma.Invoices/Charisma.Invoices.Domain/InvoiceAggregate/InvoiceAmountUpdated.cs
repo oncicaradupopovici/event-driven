@@ -1,8 +1,7 @@
 ﻿using System;
 using Charisma.SharedKernel.Core;
-using Charisma.SharedKernel.Domain;
 
-namespace Charisma.Invoices.Domain.Events
+namespace Charisma.Invoices.Domain.InvoiceAggregate
 {
     public class InvoiceAmountUpdated : Event
     {

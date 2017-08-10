@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Charisma.Contracts.Application.Commands;
-using Charisma.Contracts.Domain.Aggregates;
+using Charisma.Contracts.Domain.ContractAggregate;
 using Charisma.SharedKernel.Application.Interfaces;
 using Charisma.SharedKernel.Domain.Interfaces;
 
