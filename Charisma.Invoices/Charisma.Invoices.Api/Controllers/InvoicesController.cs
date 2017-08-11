@@ -12,14 +12,12 @@ namespace Charisma.Invoices.Api.Controllers
     [Route("api/[controller]")]
     public class InvoicesController : Controller
     {
-        private readonly ICommandHandler<CreateInvoice> _createInvoiceHandler;
-        private readonly ICommandHandler<UpdateInvoiceAmount> _updateInvoiceAmountHandler;
+        private readonly IMediator _mediator;
         private readonly ICrudRepository<Invoice> _invoiceRepository;
 
-        public InvoicesController(ICommandHandler<CreateInvoice> createInvoiceHandler, ICommandHandler<UpdateInvoiceAmount> updateInvoiceAmountHandler, ICrudRepository<Invoice> invoiceRepository)
+        public InvoicesController(IMediator mediator, ICrudRepository<Invoice> invoiceRepository)
         {
-            _createInvoiceHandler = createInvoiceHandler;
-            _updateInvoiceAmountHandler = updateInvoiceAmountHandler;
+            _mediator = mediator;
             _invoiceRepository = invoiceRepository;
         }
 
@@ -40,16 +38,16 @@ namespace Charisma.Invoices.Api.Controllers
 
         // POST api/invoices
         [HttpPost]
-        public async Task Post([FromBody]CreateInvoice command)
+        public Task Post([FromBody]CreateInvoice command)
         {
-            await _createInvoiceHandler.HandleAsync(command);
+            return _mediator.Send(command);
         }
 
         // PATCH api/invoices/7327223E-22EA-48DC-BC44-FFF6AB3B9489
         [HttpPatch("{id}")]
-        public async Task Patch(Guid id, [FromBody]UpdateInvoiceAmount command)
+        public Task Patch(Guid id, [FromBody]UpdateInvoiceAmount command)
         {
-            await _updateInvoiceAmountHandler.HandleAsync(command);
+            return _mediator.Send(command);
         }
 
         // DELETE api/invoices/7327223E-22EA-48DC-BC44-FFF6AB3B9489

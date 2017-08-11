@@ -18,3 +18,9 @@ services:
     build:
       context: ./Charisma.SharedKernel/Charisma.SharedKernel.EventProcessor
       dockerfile: Dockerfile
+
+  charisma.payments.api:
+    image: charisma.payments.api
+    build:
+      context: ./Charisma.Payments/Charisma.Payments.Api
+      dockerfile: Dockerfile

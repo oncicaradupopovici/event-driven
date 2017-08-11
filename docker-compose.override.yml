@@ -18,3 +18,9 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - "80"
+
+  charisma.payments.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
