@@ -5,7 +5,7 @@ using Charisma.SharedKernel.Core;
 
 namespace Charisma.SharedKernel.Domain
 {
-    public class EventedAggregateRoot : AggregateRoot
+    public abstract class EventedAggregateRoot : AggregateRoot
     {
         private readonly List<Event> _changes = new List<Event>();
 

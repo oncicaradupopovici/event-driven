@@ -29,6 +29,19 @@ namespace Charisma.Contracts.Data
                 .ToTable("Contracts")
                 .HasKey(c => c.Id);
 
+            modelBuilder.Entity<ContractReadModel>()
+                .HasMany(c => c.ContractLines)
+                .WithOne()
+                .HasForeignKey(cl => cl.ContractId);
+
+            modelBuilder.Entity<ContractLineReadModel>()
+                .ToTable("ContractLines")
+                .HasKey(c => c.Id);
+
+
+
+
+
 
 
             modelBuilder.Entity<EventDescriptor>()

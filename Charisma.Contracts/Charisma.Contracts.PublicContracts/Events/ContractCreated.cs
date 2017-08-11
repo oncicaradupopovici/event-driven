@@ -5,13 +5,12 @@ namespace Charisma.Contracts.PublishedLanguage.Events
 {
     public class ContractCreated : Event
     {
-        public decimal Amount { get; }
 
         public Guid ClientId { get; }
-        public ContractCreated(Guid id, decimal amount, Guid clientId)
+
+        public ContractCreated(Guid eventId, Guid aggregateId, Guid clientId) 
+            : base(eventId, aggregateId)
         {
-            Id = id;
-            Amount = amount;
             ClientId = clientId;
         }
     }

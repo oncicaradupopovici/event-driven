@@ -8,9 +8,10 @@ using Charisma.Contracts.Data;
 namespace Charisma.Contracts.Migrations.Migrations
 {
     [DbContext(typeof(CharismaContractsDbContext))]
-    partial class CharismaContractsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170811121535_ReadModelUpdates")]
+    partial class ReadModelUpdates
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")

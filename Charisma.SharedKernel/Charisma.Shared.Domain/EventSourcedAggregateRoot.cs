@@ -5,7 +5,7 @@ using Charisma.SharedKernel.Core;
 
 namespace Charisma.SharedKernel.Domain
 {
-    public class EventSourcedAggregateRoot : EventedAggregateRoot
+    public abstract class EventSourcedAggregateRoot : EventedAggregateRoot
     {
         public int Version { get; internal set; }
 

@@ -9,9 +9,9 @@ namespace Charisma.Contracts.Domain.ContractAggregate
     {
         public decimal NewAmount { get; }
 
-        public ContractAmountUpdated(Guid id, decimal newAmount)
+        public ContractAmountUpdated(Guid eventId, Guid aggregateId, decimal newAmount)
+            :base(eventId, aggregateId)
         {
-            Id = id;
             NewAmount = newAmount;
         }
     }

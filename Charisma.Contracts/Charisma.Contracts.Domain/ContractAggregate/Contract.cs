@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Charisma.SharedKernel.Domain;
 
 namespace Charisma.Contracts.Domain.ContractAggregate
@@ -9,6 +11,9 @@ namespace Charisma.Contracts.Domain.ContractAggregate
 
         public Guid ClientId { get; private set; }
 
+        public List<ContractLine> ContractLines { get; private set; }
+
+
         //needed 4 repository should be private
         public Contract()
         {
@@ -16,29 +21,38 @@ namespace Charisma.Contracts.Domain.ContractAggregate
 
 
 
-        public Contract(Guid id, decimal amount, Guid clientId)
+        public Contract(Guid clientId)
         {
-            Emit(new ContractCreated(id, amount, clientId));
+            Emit(new ContractCreated(Guid.NewGuid(), Guid.NewGuid(), clientId));
         }
 
-        public void UpdateAmount(decimal newAmount)
-        {
-            Emit(new ContractAmountUpdated(this.Id, newAmount));
-        }
 
+        public void AddContractLine(string product, decimal price, int quantity)
+        {
+            Emit(new ContractLineAdded(Guid.NewGuid(), this.Id, Guid.NewGuid(), product, price, quantity));
+            Emit(new ContractAmountUpdated(Guid.NewGuid(), this.Id, this.Amount + price * quantity)); //just 4 integration purposes
+        }
 
 
 
         private void Apply(ContractCreated e)
         {
-            this.Id = e.Id;
-            this.Amount = e.Amount;
+            this.Id = e.AggregateId;
             this.ClientId = e.ClientId;
+            this.ContractLines = new List<ContractLine>();
         }
 
         private void Apply(ContractAmountUpdated e)
         {
             this.Amount = e.NewAmount;
         }
+
+        private void Apply(ContractLineAdded e)
+        {
+            var contractLine = new ContractLine(new Product(e.Product, e.Price), e.Quantity, this.Id);
+            this.ContractLines.Add(contractLine);
+        }
+
+
     }
 }

@@ -17,21 +17,21 @@ namespace Charisma.Invoices.Domain.InvoiceAggregate
 
         }
 
-        public Invoice(Guid id, Guid clientId, Guid? contractId, decimal amount)
+        public Invoice(Guid clientId, Guid? contractId, decimal amount)
         {
-            Id = id;
+            Id = Guid.NewGuid();
             Amount = amount;
             ClientId = clientId;
             ContractId = contractId;
 
-            AddEvent(new InvoiceCreated(id, clientId, contractId, amount));
+            AddEvent(new InvoiceCreated(Guid.NewGuid(), Id, clientId, contractId, amount));
         }
 
         public void UpdateAmount(decimal newAmount)
         {
             this.Amount = newAmount;
 
-            AddEvent(new InvoiceAmountUpdated(this.Id, newAmount));
+            AddEvent(new InvoiceAmountUpdated(Guid.NewGuid(), Id, newAmount));
         }
 
     }

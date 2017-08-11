@@ -14,16 +14,16 @@ namespace Charisma.Invoices.Application.CommandHandlers
             this._repository = repository;
         }
 
-        public Task HandleAsync(CreateInvoice message)
+        public Task HandleAsync(CreateInvoice command)
         {
-            var invoice = new Invoice(message.Id, message.ClientId, message.ContractId, message.Amount);
+            var invoice = new Invoice(command.ClientId, command.ContractId, command.Amount);
             return _repository.AddAsync(invoice);
 
         }
 
         public async Task HandleAsync(UpdateInvoiceAmount message)
         {
-            var invoice = await _repository.GetSingleAsync(message.Id);
+            var invoice = await _repository.GetSingleAsync(message.InvoiceId);
             invoice.UpdateAmount(message.NewAmount);
             await _repository.UpdateAsync(invoice);
         }

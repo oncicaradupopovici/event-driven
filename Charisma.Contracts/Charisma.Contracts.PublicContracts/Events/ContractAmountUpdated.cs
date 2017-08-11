@@ -7,9 +7,9 @@ namespace Charisma.Contracts.PublishedLanguage.Events
     {
         public decimal NewAmount { get; }
 
-        public ContractAmountUpdated(Guid id, decimal newAmount)
+        public ContractAmountUpdated(Guid eventId, Guid aggregateId, decimal newAmount)
+            : base(eventId, aggregateId)
         {
-            Id = id;
             NewAmount = newAmount;
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Charisma.SharedKernel.ReadModel;
 
 namespace Charisma.Contracts.ReadModel.Entities
@@ -12,16 +13,19 @@ namespace Charisma.Contracts.ReadModel.Entities
 
         public int Version { get; set; }
 
+        public List<ContractLineReadModel> ContractLines { get; private set; }
+
         private ContractReadModel()
         {
-            
+            ContractLines = new List<ContractLineReadModel>();
         }
-        public ContractReadModel(Guid id, decimal amount, Guid clientId, int version)
+        public ContractReadModel(Guid id, Guid clientId, int version)
         {
             Id = id;
-            Amount = amount;
             ClientId = clientId;
             Version = version;
+
+            
         }
     }
 }

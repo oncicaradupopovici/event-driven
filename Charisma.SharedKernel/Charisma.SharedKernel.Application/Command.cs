@@ -5,6 +5,14 @@ namespace Charisma.SharedKernel.Application
 {
     public class Command : Message
     {
-        public Guid Id { get; protected set; }
+        public Guid CommandId { get; }
+
+        public DateTime CreationDate { get; }
+
+        public Command()
+        {
+            CommandId = Guid.NewGuid();
+            CreationDate = DateTime.Now;
+        }
     }
 }

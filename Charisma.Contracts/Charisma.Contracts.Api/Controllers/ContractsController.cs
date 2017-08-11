@@ -43,9 +43,9 @@ namespace Charisma.Contracts.Api.Controllers
             await _mediator.Send(command);
         }
 
-        // PUT api/contracts/7327223E-22EA-48DC-BC44-FFF6AB3B9489
-        [HttpPatch("{id}")]
-        public async Task Patch(Guid id, [FromBody]UpdateContractAmount command)
+        // PUT api/contracts/7327223E-22EA-48DC-BC44-FFF6AB3B9489/lines
+        [HttpPost("{id}/lines")]
+        public async Task Post([FromBody]AddContractLine command)
         {
             await _mediator.Send(command);
         }

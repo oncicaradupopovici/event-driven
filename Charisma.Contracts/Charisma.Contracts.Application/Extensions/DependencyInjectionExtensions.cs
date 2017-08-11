@@ -19,9 +19,10 @@ namespace Charisma.Contracts.Application.Extensions
             services.AddSingleton<IMediator, Mediator>();
 
             services.AddScoped<ICommandHandler<CreateContract>, ContractCommandHandlers>();
-            services.AddScoped<ICommandHandler<UpdateContractAmount>, ContractCommandHandlers>();
+            services.AddScoped<ICommandHandler<AddContractLine>, ContractCommandHandlers>();
 
             services.AddScoped<IEventHandler<ContractCreated>, ReadModelGenerator>();
+            services.AddScoped<IEventHandler<ContractLineAdded>, ReadModelGenerator>();
             services.AddScoped<IEventHandler<ContractAmountUpdated>, ReadModelGenerator>();
 
             services.AddMessaging();

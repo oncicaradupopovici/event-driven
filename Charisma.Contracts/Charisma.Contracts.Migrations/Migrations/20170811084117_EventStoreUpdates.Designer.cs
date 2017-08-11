@@ -3,20 +3,21 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Charisma.Invoices.Data;
+using Charisma.Contracts.Data;
 
-namespace Charisma.Invoices.Migrations.Migrations
+namespace Charisma.Contracts.Migrations.Migrations
 {
-    [DbContext(typeof(CharismaInvoicesDbContext))]
-    partial class CharismaInvoicesDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(CharismaContractsDbContext))]
+    [Migration("20170811084117_EventStoreUpdates")]
+    partial class EventStoreUpdates
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Charisma.Invoices.Domain.InvoiceAggregate.Invoice", b =>
+            modelBuilder.Entity("Charisma.Contracts.ReadModel.Entities.ContractReadModel", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
@@ -25,11 +26,11 @@ namespace Charisma.Invoices.Migrations.Migrations
 
                     b.Property<Guid>("ClientId");
 
-                    b.Property<Guid?>("ContractId");
+                    b.Property<int>("Version");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Invoices");
+                    b.ToTable("Contracts");
                 });
 
             modelBuilder.Entity("Charisma.SharedKernel.Core.EventDescriptor", b =>

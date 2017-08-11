@@ -6,7 +6,7 @@ using Charisma.SharedKernel.Domain.Interfaces;
 
 namespace Charisma.Contracts.Application.CommandHandlers
 {
-    public class ContractCommandHandlers : ICommandHandler<CreateContract>, ICommandHandler<UpdateContractAmount>
+    public class ContractCommandHandlers : ICommandHandler<CreateContract>, ICommandHandler<AddContractLine>
     {
         private readonly IEventSourcedRepository<Contract> _repository;
         public ContractCommandHandlers(IEventSourcedRepository<Contract> repository)
@@ -14,18 +14,18 @@ namespace Charisma.Contracts.Application.CommandHandlers
             this._repository = repository;
         }
 
-        public async Task HandleAsync(CreateContract message)
+        public async Task HandleAsync(CreateContract command)
         {
-            var contract = new Contract(message.Id, message.Amount, message.ClientId);
+            var contract = new Contract(command.ClientId);
             await _repository.SaveAsync(contract);
 
         }
 
-        public async Task HandleAsync(UpdateContractAmount message)
+        public async Task HandleAsync(AddContractLine command)
         {
-            var contract = await _repository.GetById(message.Id);
-            contract.UpdateAmount(message.NewAmount);
-            await _repository.SaveAsync(contract, message.OriginalVersion);
+            var contract = await _repository.GetById(command.ContractId);
+            contract.AddContractLine(command.Product, command.Price, command.Quantity);
+            await _repository.SaveAsync(contract);
         }
     }
 }

@@ -7,9 +7,9 @@ namespace Charisma.Invoices.Domain.InvoiceAggregate
     {
         public decimal NewAmount { get; }
 
-        public InvoiceAmountUpdated(Guid id, decimal newAmount)
+        public InvoiceAmountUpdated(Guid eventId, Guid aggregateId, decimal newAmount)
+            :base(eventId, aggregateId)
         {
-            Id = id;
             NewAmount = newAmount;
         }
     }

@@ -21,13 +21,13 @@ namespace Charisma.Invoices.Application.EventHandlers
 
         public Task HandleAsync(ContractCreated @event)
         {
-            var invoice = new Invoice(Guid.NewGuid(), @event.ClientId, @event.Id, @event.Amount);
+            var invoice = new Invoice(@event.ClientId, @event.AggregateId, 0);
             return _invoiceRepository.AddAsync(invoice);
         }
 
         public async Task HandleAsync(ContractAmountUpdated @event)
         {
-            var invoices = await _invoiceRepository.GetWhereAsync(i => i.ContractId.HasValue && i.ContractId == @event.Id);
+            var invoices = await _invoiceRepository.GetWhereAsync(i => i.ContractId.HasValue && i.ContractId == @event.AggregateId);
             var invoice = invoices.FirstOrDefault();
 
             if (invoice != null)

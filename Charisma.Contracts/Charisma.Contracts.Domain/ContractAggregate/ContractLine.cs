@@ -5,10 +5,24 @@ using Charisma.SharedKernel.Domain;
 
 namespace Charisma.Contracts.Domain.ContractAggregate
 {
-    internal class ContractLine : Entity
+    public class ContractLine : Entity
     {
-        private ContractLine()
+        public Product Product { get; private set; }
+        public int Quantity { get; private set; }
+
+        public Guid ContractId { get; private set; }
+
+
+        //needed by ef
+        //private ContractLine()
+        //{
+        //}
+
+        public ContractLine(Product product, int quantity, Guid contractId)
         {
+            Product = product;
+            Quantity = quantity;
+            ContractId = contractId;
         }
     }
 }

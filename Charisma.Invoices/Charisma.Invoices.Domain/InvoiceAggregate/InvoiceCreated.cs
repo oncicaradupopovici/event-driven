@@ -11,9 +11,9 @@ namespace Charisma.Invoices.Domain.InvoiceAggregate
 
         public Guid? ContractId { get; }
 
-        public InvoiceCreated(Guid id, Guid clientId, Guid? contractId, decimal amount)
+        public InvoiceCreated(Guid eventId, Guid aggregateId, Guid clientId, Guid? contractId, decimal amount)
+            : base(eventId, aggregateId)
         {
-            Id = id;
             Amount = amount;
             ClientId = clientId;
             ContractId = contractId;

@@ -20,15 +20,18 @@ namespace Charisma.SharedKernel.Core
         public Guid AggregateId { get; private set; }
         public int Version { get; private set; }
 
+        public DateTime CreationDate { get; private set; }
+
         private EventDescriptor() { }
 
-        public EventDescriptor(Guid aggregateId, Event eventData, int version)
+        public EventDescriptor(Guid aggregateId, Event eventData, int version, DateTime creationDate)
         {
             //EventData = eventData;
             JsonEventData = JsonConvert.SerializeObject(eventData);
             EventType = eventData.GetType().AssemblyQualifiedName;
             Version = version;
             AggregateId = aggregateId;
+            CreationDate = creationDate;
         }
     }
 
@@ -62,7 +65,7 @@ namespace Charisma.SharedKernel.Core
                 @event.Version = i;
 
                 // push event to the event descriptors list for current aggregate
-                await _eventRepository.AddEventAsync(new EventDescriptor(aggregateId, @event, i));
+                await _eventRepository.AddEventAsync(new EventDescriptor(aggregateId, @event, i, @event.CreationDate));
             }
         }
 

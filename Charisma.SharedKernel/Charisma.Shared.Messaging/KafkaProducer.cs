@@ -60,12 +60,12 @@ namespace Charisma.SharedKernel.Messaging
 
         private string GetKeyForCommand<TCommand>(TCommand command) where TCommand : Command
         {
-            return command.Id.ToString();
+            return command.CommandId.ToString();
         }
 
         private string GetKeyForEvent<TEvent>(TEvent @event) where TEvent : Event
         {
-            return @event.Id.ToString();
+            return @event.EventId.ToString();
         }
 
         public void Dispose()

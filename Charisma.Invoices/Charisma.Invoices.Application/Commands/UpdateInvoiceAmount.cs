@@ -5,11 +5,12 @@ namespace Charisma.Invoices.Application.Commands
 {
     public class UpdateInvoiceAmount : Command
     {
+        public Guid InvoiceId { get; }
         public decimal NewAmount { get; }
 
-        public UpdateInvoiceAmount(Guid id, decimal newAmount)
+        public UpdateInvoiceAmount(Guid invoiceId, decimal newAmount)
         {
-            this.Id = id;
+            this.InvoiceId = invoiceId;
             this.NewAmount = newAmount;
         }
     }

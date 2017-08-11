@@ -9,7 +9,8 @@ namespace Charisma.Contracts.Application.EventHandlers
 {
     public class ReadModelGenerator: 
         IEventHandler<ContractCreated>, 
-        IEventHandler<ContractAmountUpdated>
+        IEventHandler<ContractAmountUpdated>,
+        IEventHandler<ContractLineAdded>
     {
         private readonly IReadModelRepository<ContractReadModel> _contractReadModelRepository;
 
@@ -23,7 +24,7 @@ namespace Charisma.Contracts.Application.EventHandlers
             try
             {
                 await _contractReadModelRepository.AddAsync(
-                    new ContractReadModel(@event.Id, @event.Amount, @event.ClientId, @event.Version));
+                    new ContractReadModel(@event.AggregateId, @event.ClientId, @event.Version));
             }
             catch (Exception ex)
             {
@@ -33,7 +34,7 @@ namespace Charisma.Contracts.Application.EventHandlers
 
         public async Task HandleAsync(ContractAmountUpdated @event)
         {
-            var e = await _contractReadModelRepository.GetSingleAsync(@event.Id);
+            var e = await _contractReadModelRepository.GetSingleAsync(@event.AggregateId);
 
             //if(e == null)
             //    throw new Exception("Could not find entity in readModel");
@@ -44,8 +45,22 @@ namespace Charisma.Contracts.Application.EventHandlers
                 e.Version = @event.Version;
                 await _contractReadModelRepository.UpdateAsync(e);
             }
+        }
 
-            
+        public async Task HandleAsync(ContractLineAdded @event)
+        {
+            var e = await _contractReadModelRepository.GetSingleAsync(@event.AggregateId);
+
+            //if(e == null)
+            //    throw new Exception("Could not find entity in readModel");
+
+            if (e != null)
+            {
+                var contractLine = new ContractLineReadModel(@event.ContractLineId, @event.Product, @event.Price, @event.Quantity, @event.AggregateId);
+                e.ContractLines.Add(contractLine);
+                e.Version = @event.Version;
+                await _contractReadModelRepository.UpdateAsync(e);
+            }
         }
     }
 }
