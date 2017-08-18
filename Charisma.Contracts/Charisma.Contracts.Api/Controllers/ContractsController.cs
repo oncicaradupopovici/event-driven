@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Charisma.SharedKernel.ReadModel.Interfaces;
 using Charisma.Contracts.ReadModel.Entities;
 using Charisma.SharedKernel.Application.Interfaces;
 using Charisma.Contracts.Application.Commands;
+using Charisma.SharedKernel.Domain.Interfaces;
 
 namespace Charisma.Contracts.Api.Controllers
 {
@@ -13,9 +13,9 @@ namespace Charisma.Contracts.Api.Controllers
     public class ContractsController : Controller
     {
         private readonly IMediator _mediator;
-        private readonly IReadModelRepository<ContractReadModel> _contractReadModelRepository;
+        private readonly ICrudRepository<ContractReadModel> _contractReadModelRepository;
 
-        public ContractsController(IMediator mediator, IReadModelRepository<ContractReadModel> contractReadModelRepository)
+        public ContractsController(IMediator mediator, ICrudRepository<ContractReadModel> contractReadModelRepository)
         {
             _mediator = mediator;
             _contractReadModelRepository = contractReadModelRepository;
@@ -43,17 +43,19 @@ namespace Charisma.Contracts.Api.Controllers
             await _mediator.Send(command);
         }
 
-        // PUT api/contracts/7327223E-22EA-48DC-BC44-FFF6AB3B9489/lines
+        // POST api/contracts/7327223E-22EA-48DC-BC44-FFF6AB3B9489/lines
         [HttpPost("{id}/lines")]
         public async Task Post([FromBody]AddContractLine command)
         {
             await _mediator.Send(command);
         }
 
-        // DELETE api/contracts/7327223E-22EA-48DC-BC44-FFF6AB3B9489
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        // POST api/contracts/7327223E-22EA-48DC-BC44-FFF6AB3B9489/validate
+        [HttpPost("{id}/validate")]
+        public async Task Post([FromBody]ValidateContract command)
         {
+            await _mediator.Send(command);
         }
+
     }
 }

@@ -43,17 +43,5 @@ namespace Charisma.Invoices.Api.Controllers
             return _mediator.Send(command);
         }
 
-        // PATCH api/invoices/7327223E-22EA-48DC-BC44-FFF6AB3B9489
-        [HttpPatch("{id}")]
-        public Task Patch(Guid id, [FromBody]UpdateInvoiceAmount command)
-        {
-            return _mediator.Send(command);
-        }
-
-        // DELETE api/invoices/7327223E-22EA-48DC-BC44-FFF6AB3B9489
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }

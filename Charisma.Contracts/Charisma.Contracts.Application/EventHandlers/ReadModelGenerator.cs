@@ -1,34 +1,33 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Charisma.SharedKernel.Core.Interfaces;
-using Charisma.SharedKernel.ReadModel.Interfaces;
 using Charisma.Contracts.ReadModel.Entities;
 using Charisma.Contracts.PublishedLanguage.Events;
+using Charisma.SharedKernel.Domain.Interfaces;
 
 namespace Charisma.Contracts.Application.EventHandlers
 {
     public class ReadModelGenerator: 
         IEventHandler<ContractCreated>, 
         IEventHandler<ContractAmountUpdated>,
-        IEventHandler<ContractLineAdded>
+        IEventHandler<ContractLineAdded>,
+        IEventHandler<ContractValidated>
     {
-        private readonly IReadModelRepository<ContractReadModel> _contractReadModelRepository;
+        private readonly ICrudRepository<ContractReadModel> _contractReadModelRepository;
 
-        public ReadModelGenerator(IReadModelRepository<ContractReadModel> contractReadModelRepository)
+        public ReadModelGenerator(ICrudRepository<ContractReadModel> contractReadModelRepository)
         {
             _contractReadModelRepository = contractReadModelRepository;
         }
 
         public async Task HandleAsync(ContractCreated @event)
         {
-            try
+            var c = await _contractReadModelRepository.GetSingleAsync(@event.AggregateId);
+            if (c == null)
             {
                 await _contractReadModelRepository.AddAsync(
                     new ContractReadModel(@event.AggregateId, @event.ClientId, @event.Version));
-            }
-            catch (Exception ex)
-            {
-                //duplicate messages
             }
         }
 
@@ -49,6 +48,24 @@ namespace Charisma.Contracts.Application.EventHandlers
 
         public async Task HandleAsync(ContractLineAdded @event)
         {
+            var e = await _contractReadModelRepository.GetSingleAsync(@event.AggregateId, "ContractLines");
+
+
+            if (e != null)
+            {
+                if (e.ContractLines.All(cl => cl.Id != @event.ContractLineId))
+                {
+                    var contractLine = new ContractLineReadModel(@event.ContractLineId, @event.Product, @event.Price,
+                        @event.Quantity, @event.AggregateId);
+                    e.ContractLines.Add(contractLine);
+                    e.Version = @event.Version;
+                    await _contractReadModelRepository.UpdateAsync(e);
+                }
+            }
+        }
+
+        public async Task HandleAsync(ContractValidated @event)
+        {
             var e = await _contractReadModelRepository.GetSingleAsync(@event.AggregateId);
 
             //if(e == null)
@@ -56,9 +73,7 @@ namespace Charisma.Contracts.Application.EventHandlers
 
             if (e != null)
             {
-                var contractLine = new ContractLineReadModel(@event.ContractLineId, @event.Product, @event.Price, @event.Quantity, @event.AggregateId);
-                e.ContractLines.Add(contractLine);
-                e.Version = @event.Version;
+                e.IsValidated = true;
                 await _contractReadModelRepository.UpdateAsync(e);
             }
         }

@@ -13,6 +13,8 @@ namespace Charisma.Contracts.Domain.ContractAggregate
 
         public List<ContractLine> ContractLines { get; private set; }
 
+        public bool IsValidated { get; private set; }
+
 
         //needed 4 repository should be private
         public Contract()
@@ -29,8 +31,18 @@ namespace Charisma.Contracts.Domain.ContractAggregate
 
         public void AddContractLine(string product, decimal price, int quantity)
         {
+            if(IsValidated)
+                throw new Exception("Contract is validated");
+
             Emit(new ContractLineAdded(Guid.NewGuid(), this.Id, Guid.NewGuid(), product, price, quantity));
-            Emit(new ContractAmountUpdated(Guid.NewGuid(), this.Id, this.Amount + price * quantity)); //just 4 integration purposes
+            Emit(new ContractAmountUpdated(Guid.NewGuid(), this.Id, this.Amount + price * quantity));
+        }
+
+        public void Validate()
+        {
+            if(IsValidated)
+                throw new Exception("Contract already validated");
+            Emit(new ContractValidated(Guid.NewGuid(), this.Id, this.ClientId, this.Amount));
         }
 
 
@@ -51,6 +63,11 @@ namespace Charisma.Contracts.Domain.ContractAggregate
         {
             var contractLine = new ContractLine(new Product(e.Product, e.Price), e.Quantity, this.Id);
             this.ContractLines.Add(contractLine);
+        }
+
+        private void Apply(ContractValidated e)
+        {
+            this.IsValidated = true;
         }
 
 

@@ -9,8 +9,7 @@ using Charisma.Contracts.PublishedLanguage.Events;
 namespace Charisma.Invoices.Application.EventHandlers
 {
     public class ContractEventHandlers :
-        IEventHandler<ContractCreated>,
-        IEventHandler<ContractAmountUpdated>
+        IEventHandler<ContractValidated>
     {
         private readonly ICrudRepository<Invoice> _invoiceRepository;
 
@@ -19,22 +18,10 @@ namespace Charisma.Invoices.Application.EventHandlers
             _invoiceRepository = invoiceRepository;
         }
 
-        public Task HandleAsync(ContractCreated @event)
+        public Task HandleAsync(ContractValidated @event)
         {
-            var invoice = new Invoice(@event.ClientId, @event.AggregateId, 0);
+            var invoice = new Invoice(@event.ClientId, @event.AggregateId, @event.Amount);
             return _invoiceRepository.AddAsync(invoice);
-        }
-
-        public async Task HandleAsync(ContractAmountUpdated @event)
-        {
-            var invoices = await _invoiceRepository.GetWhereAsync(i => i.ContractId.HasValue && i.ContractId == @event.AggregateId);
-            var invoice = invoices.FirstOrDefault();
-
-            if (invoice != null)
-            {
-                invoice.UpdateAmount(@event.NewAmount);
-                await _invoiceRepository.UpdateAsync(invoice);
-            }
         }
     }
 }

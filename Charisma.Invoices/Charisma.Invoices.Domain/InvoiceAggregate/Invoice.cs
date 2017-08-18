@@ -11,6 +11,10 @@ namespace Charisma.Invoices.Domain.InvoiceAggregate
 
         public decimal Amount { get; private set; }
 
+        public bool IsPayed => PaymentId.HasValue;
+
+        public Guid? PaymentId { get; private set; }
+
         //needed 4 repository should be private
         public Invoice()
         {
@@ -27,11 +31,10 @@ namespace Charisma.Invoices.Domain.InvoiceAggregate
             AddEvent(new InvoiceCreated(Guid.NewGuid(), Id, clientId, contractId, amount));
         }
 
-        public void UpdateAmount(decimal newAmount)
+        public void MarkAsPayed(Guid paymentId)
         {
-            this.Amount = newAmount;
-
-            AddEvent(new InvoiceAmountUpdated(Guid.NewGuid(), Id, newAmount));
+            PaymentId = paymentId;
+            AddEvent(new InvoicePayed(Guid.NewGuid(), Id, paymentId));
         }
 
     }

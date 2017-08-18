@@ -3,40 +3,21 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Charisma.Contracts.Data;
+using Charisma.Payments.Data;
 
-namespace Charisma.Contracts.Migrations.Migrations
+namespace Charisma.Payments.Migrations.Migrations
 {
-    [DbContext(typeof(CharismaContractsDbContext))]
-    partial class CharismaContractsDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(CharismaPaymentsDbContext))]
+    [Migration("20170817080311_CrudTables")]
+    partial class CrudTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Charisma.Contracts.ReadModel.Entities.ContractLineReadModel", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<Guid>("ContractId");
-
-                    b.Property<decimal>("Price");
-
-                    b.Property<string>("Product");
-
-                    b.Property<int>("Quantity");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ContractId");
-
-                    b.ToTable("ContractLines");
-                });
-
-            modelBuilder.Entity("Charisma.Contracts.ReadModel.Entities.ContractReadModel", b =>
+            modelBuilder.Entity("Charisma.Payments.Domain.PayableAggregate.Payable", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
@@ -45,13 +26,30 @@ namespace Charisma.Contracts.Migrations.Migrations
 
                     b.Property<Guid>("ClientId");
 
-                    b.Property<bool>("IsValidated");
+                    b.Property<Guid?>("InvoiceId");
 
                     b.Property<int>("Version");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Contracts");
+                    b.ToTable("Payables");
+                });
+
+            modelBuilder.Entity("Charisma.Payments.Domain.PayableAggregate.Payment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<Guid>("PayableId");
+
+                    b.Property<DateTime>("PaymentDate");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PayableId")
+                        .IsUnique();
+
+                    b.ToTable("Payments");
                 });
 
             modelBuilder.Entity("Charisma.SharedKernel.Core.EventDescriptor", b =>
@@ -74,11 +72,11 @@ namespace Charisma.Contracts.Migrations.Migrations
                     b.ToTable("EventStore");
                 });
 
-            modelBuilder.Entity("Charisma.Contracts.ReadModel.Entities.ContractLineReadModel", b =>
+            modelBuilder.Entity("Charisma.Payments.Domain.PayableAggregate.Payment", b =>
                 {
-                    b.HasOne("Charisma.Contracts.ReadModel.Entities.ContractReadModel")
-                        .WithMany("ContractLines")
-                        .HasForeignKey("ContractId")
+                    b.HasOne("Charisma.Payments.Domain.PayableAggregate.Payable")
+                        .WithOne("Payment")
+                        .HasForeignKey("Charisma.Payments.Domain.PayableAggregate.Payment", "PayableId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
         }

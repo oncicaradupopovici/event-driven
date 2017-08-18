@@ -1,7 +1,7 @@
-﻿using Charisma.SharedKernel.Core;
-using System;
+﻿using System;
+using Charisma.SharedKernel.Core;
 
-namespace Charisma.Invoices.PublishedLanguage
+namespace Charisma.Invoices.PublishedLanguage.Events
 {
     public class InvoiceCreated : Event
     {

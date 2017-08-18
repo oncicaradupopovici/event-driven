@@ -36,7 +36,8 @@ namespace Charisma.Contracts.EventProcessor
             Task.WaitAll(
                 eventProcessor.ProcessEventAsync<ContractCreated>(),
                 eventProcessor.ProcessEventAsync<ContractLineAdded>(),
-                eventProcessor.ProcessEventAsync<ContractAmountUpdated>()
+                eventProcessor.ProcessEventAsync<ContractAmountUpdated>(),
+                eventProcessor.ProcessEventAsync<ContractValidated>()
             );
         }
 

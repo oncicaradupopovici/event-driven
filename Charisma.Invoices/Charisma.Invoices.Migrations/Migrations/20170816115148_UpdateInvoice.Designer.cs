@@ -8,9 +8,10 @@ using Charisma.Invoices.Data;
 namespace Charisma.Invoices.Migrations.Migrations
 {
     [DbContext(typeof(CharismaInvoicesDbContext))]
-    partial class CharismaInvoicesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170816115148_UpdateInvoice")]
+    partial class UpdateInvoice
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")

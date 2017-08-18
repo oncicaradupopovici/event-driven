@@ -13,11 +13,12 @@ namespace Charisma.Contracts.ReadModel.Entities
 
         public int Version { get; set; }
 
-        public List<ContractLineReadModel> ContractLines { get; private set; }
+        public List<ContractLineReadModel> ContractLines { get; } = new List<ContractLineReadModel>();
+
+        public bool IsValidated { get; set; }
 
         private ContractReadModel()
         {
-            ContractLines = new List<ContractLineReadModel>();
         }
         public ContractReadModel(Guid id, Guid clientId, int version)
         {

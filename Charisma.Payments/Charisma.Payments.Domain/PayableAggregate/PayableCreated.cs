@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Charisma.SharedKernel.Core;
 
-namespace Charisma.Payments.Domain.PaymentAggregate
+namespace Charisma.Payments.Domain.PayableAggregate
 {
-    public class PaymentCreated : Event
+    public class PayableCreated : Event
     {
-        public PaymentCreated(Guid eventId, Guid aggregateId, Guid clientId, decimal amount, Guid? invoiceId)
+        public PayableCreated(Guid eventId, Guid aggregateId, Guid clientId, decimal amount, Guid? invoiceId)
             : base(eventId, aggregateId)
         {
             this.ClientId = clientId;

@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Charisma.Payments.Domain.PayableAggregate;
+using Microsoft.EntityFrameworkCore;
 using Charisma.SharedKernel.Core;
 
 namespace Charisma.Payments.Data
 {
     public class CharismaPaymentsDbContext : DbContext
     {
-        //public DbSet<Contract> Contracts { get; set; }
+        public DbSet<Payable> Payables { get; set; }
         public DbSet<EventDescriptor> EventDescriptors { get; set; }
 
         public CharismaPaymentsDbContext() { }
@@ -19,7 +20,18 @@ namespace Charisma.Payments.Data
         {
             base.OnModelCreating(modelBuilder);
 
-           
+            modelBuilder.Entity<Payable>()
+                .ToTable("Payables")
+                .HasKey(c => c.Id);
+
+            modelBuilder.Entity<Payment>()
+                .ToTable("Payments")
+                .HasKey(c => c.Id);
+
+            modelBuilder.Entity<Payable>()
+                .HasOne(payable => payable.Payment)
+                .WithOne()
+                .HasForeignKey<Payment>(payment => payment.PayableId);
 
             modelBuilder.Entity<EventDescriptor>()
                 .ToTable("EventStore")

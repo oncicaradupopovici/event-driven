@@ -7,6 +7,7 @@ using Charisma.SharedKernel.Domain;
 using Charisma.SharedKernel.Domain.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Charisma.Payments.PublishedLanguage.Events;
 
 namespace Charisma.Invoices.EventProcessor
 {
@@ -29,8 +30,8 @@ namespace Charisma.Invoices.EventProcessor
             var eventProcessor = new SharedKernel.EventProcessor.EventProcessor(serviceProvider);
 
             Task.WaitAll(
-                eventProcessor.ProcessEventAsync<ContractCreated>(),
-                eventProcessor.ProcessEventAsync<ContractAmountUpdated>()
+                eventProcessor.ProcessEventAsync<ContractValidated>(),
+                eventProcessor.ProcessEventAsync<PaymentReceived>()
             );
 
         }

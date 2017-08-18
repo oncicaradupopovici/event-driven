@@ -16,6 +16,41 @@ namespace Charisma.Payments.Migrations.Migrations
                 .HasAnnotation("ProductVersion", "1.1.2")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Charisma.Payments.Domain.PayableAggregate.Payable", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<decimal>("Amount");
+
+                    b.Property<Guid>("ClientId");
+
+                    b.Property<Guid?>("InvoiceId");
+
+                    b.Property<int>("Version");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Payables");
+                });
+
+            modelBuilder.Entity("Charisma.Payments.Domain.PayableAggregate.Payment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<Guid>("PayableId");
+
+                    b.Property<DateTime>("PaymentDate");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PayableId")
+                        .IsUnique();
+
+                    b.ToTable("Payments");
+                });
+
             modelBuilder.Entity("Charisma.SharedKernel.Core.EventDescriptor", b =>
                 {
                     b.Property<int>("EventId")
@@ -34,6 +69,14 @@ namespace Charisma.Payments.Migrations.Migrations
                     b.HasKey("EventId");
 
                     b.ToTable("EventStore");
+                });
+
+            modelBuilder.Entity("Charisma.Payments.Domain.PayableAggregate.Payment", b =>
+                {
+                    b.HasOne("Charisma.Payments.Domain.PayableAggregate.Payable")
+                        .WithOne("Payment")
+                        .HasForeignKey("Charisma.Payments.Domain.PayableAggregate.Payment", "PayableId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
         }
     }

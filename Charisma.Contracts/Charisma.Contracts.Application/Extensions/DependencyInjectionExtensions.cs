@@ -16,14 +16,16 @@ namespace Charisma.Contracts.Application.Extensions
     {
         public static void AddApplication(this IServiceCollection services)
         {
-            services.AddSingleton<IMediator, Mediator>();
+            services.AddScoped<IMediator, Mediator>();
 
             services.AddScoped<ICommandHandler<CreateContract>, ContractCommandHandlers>();
             services.AddScoped<ICommandHandler<AddContractLine>, ContractCommandHandlers>();
+            services.AddScoped<ICommandHandler<ValidateContract>, ContractCommandHandlers>();
 
             services.AddScoped<IEventHandler<ContractCreated>, ReadModelGenerator>();
             services.AddScoped<IEventHandler<ContractLineAdded>, ReadModelGenerator>();
             services.AddScoped<IEventHandler<ContractAmountUpdated>, ReadModelGenerator>();
+            services.AddScoped<IEventHandler<ContractValidated>, ReadModelGenerator>();
 
             services.AddMessaging();
             services.AddDataAccess();

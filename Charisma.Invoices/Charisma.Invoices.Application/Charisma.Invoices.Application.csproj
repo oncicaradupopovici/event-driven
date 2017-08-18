@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Charisma.Contracts\Charisma.Contracts.PublicContracts\Charisma.Contracts.PublishedLanguage.csproj" />
+    <ProjectReference Include="..\..\Charisma.Payments\Charisma.Payments.PublishedLanguage\Charisma.Payments.PublishedLanguage.csproj" />
     <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.Shared.Messaging\Charisma.SharedKernel.Messaging.csproj" />
     <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.SharedKernel.Application\Charisma.SharedKernel.Application.csproj" />
     <ProjectReference Include="..\Charisma.Invoices.Data\Charisma.Invoices.Data.csproj" />

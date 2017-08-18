@@ -67,7 +67,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Invoices.Published
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Payments.Api", "Charisma.Payments\Charisma.Payments.Api\Charisma.Payments.Api.csproj", "{AB1D3F1D-2414-4E21-9C80-5C1B0B3ED9A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Charisma.Payments.EventProcessor", "Charisma.Payments\Charisma.Payments.EventProcessor\Charisma.Payments.EventProcessor.csproj", "{52EC6CD7-C141-4C77-A052-61C55312EEF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Payments.EventProcessor", "Charisma.Payments\Charisma.Payments.EventProcessor\Charisma.Payments.EventProcessor.csproj", "{52EC6CD7-C141-4C77-A052-61C55312EEF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Charisma.Payments.PublishedLanguage", "Charisma.Payments\Charisma.Payments.PublishedLanguage\Charisma.Payments.PublishedLanguage.csproj", "{FB3F353B-709D-4F24-A208-D75CA0B6A125}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -191,6 +193,10 @@ Global
 		{52EC6CD7-C141-4C77-A052-61C55312EEF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52EC6CD7-C141-4C77-A052-61C55312EEF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52EC6CD7-C141-4C77-A052-61C55312EEF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB3F353B-709D-4F24-A208-D75CA0B6A125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB3F353B-709D-4F24-A208-D75CA0B6A125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB3F353B-709D-4F24-A208-D75CA0B6A125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB3F353B-709D-4F24-A208-D75CA0B6A125}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -224,5 +230,6 @@ Global
 		{76F362B7-4F2C-419E-B877-6631D778F73C} = {C500D16A-E376-4CEB-844C-13D41DCA2CE0}
 		{AB1D3F1D-2414-4E21-9C80-5C1B0B3ED9A7} = {927E5E1E-7063-4A98-9692-C4C4B99D56F3}
 		{52EC6CD7-C141-4C77-A052-61C55312EEF1} = {927E5E1E-7063-4A98-9692-C4C4B99D56F3}
+		{FB3F353B-709D-4F24-A208-D75CA0B6A125} = {927E5E1E-7063-4A98-9692-C4C4B99D56F3}
 	EndGlobalSection
 EndGlobal

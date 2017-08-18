@@ -6,7 +6,7 @@ using Charisma.SharedKernel.Domain.Interfaces;
 
 namespace Charisma.Invoices.Application.CommandHandlers
 {
-    public class InvoiceCommandHandlers : ICommandHandler<CreateInvoice>, ICommandHandler<UpdateInvoiceAmount>
+    public class InvoiceCommandHandlers : ICommandHandler<CreateInvoice>
     {
         private readonly ICrudRepository<Invoice> _repository;
         public InvoiceCommandHandlers(ICrudRepository<Invoice> repository)
@@ -19,13 +19,6 @@ namespace Charisma.Invoices.Application.CommandHandlers
             var invoice = new Invoice(command.ClientId, command.ContractId, command.Amount);
             return _repository.AddAsync(invoice);
 
-        }
-
-        public async Task HandleAsync(UpdateInvoiceAmount message)
-        {
-            var invoice = await _repository.GetSingleAsync(message.InvoiceId);
-            invoice.UpdateAmount(message.NewAmount);
-            await _repository.UpdateAsync(invoice);
         }
     }
 }

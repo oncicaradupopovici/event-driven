@@ -5,11 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Charisma.SharedKernel.Infra\Charisma.SharedKernel.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
+    <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.SharedKernel.Infra\Charisma.SharedKernel.Core.csproj" />
   </ItemGroup>
 
 </Project>

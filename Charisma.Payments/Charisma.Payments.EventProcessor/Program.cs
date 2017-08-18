@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Charisma.Invoices.PublishedLanguage;
+using Charisma.Invoices.PublishedLanguage.Events;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
