@@ -3,9 +3,10 @@ using System.Threading.Tasks;
 
 namespace Charisma.SharedKernel.Domain.Interfaces
 {
-    public interface IEventSourcedRepository<T> where T : EventSourcedAggregateRoot, new()
+    public interface IEventSourcedRepository<TAggregateRoot> 
+        where TAggregateRoot : IEventSourcedAggregateRoot, new()
     {
-        Task SaveAsync(EventSourcedAggregateRoot aggregate, int? expectedVersion = null);
-        Task<T> GetById(Guid id);
+        Task SaveAsync(TAggregateRoot aggregate, int? expectedVersion = null);
+        Task<TAggregateRoot> GetById(Guid id);
     }
 }

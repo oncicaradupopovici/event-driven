@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using Charisma.SharedKernel.Core.Interfaces;
 
 namespace Charisma.SharedKernel.Domain.Interfaces
 {
@@ -19,6 +18,8 @@ namespace Charisma.SharedKernel.Domain.Interfaces
         Task AddAsync(TEntity entity);
 
         Task UpdateAsync(TEntity entity);
+
+        Task SaveChangesAsync();
 
     }
 }

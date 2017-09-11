@@ -1,16 +1,7 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
-using Charisma.Contracts.Data;
-using Charisma.SharedKernel.Data;
-using Charisma.SharedKernel.Domain.Interfaces;
-using Charisma.SharedKernel.Messaging;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+﻿using System.Threading.Tasks;
+
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Linq;
 using Charisma.Contracts.PublishedLanguage.Events;
 
 namespace Charisma.Contracts.EventProcessor
@@ -31,7 +22,7 @@ namespace Charisma.Contracts.EventProcessor
                 .AddConsole(LogLevel.Debug);
 
 
-            var eventProcessor = new SharedKernel.EventProcessor.EventProcessor(serviceProvider);
+            var eventProcessor = new Charisma.SharedKernel.Application.IntegrationEventProcessor(serviceProvider);
 
             Task.WaitAll(
                 eventProcessor.ProcessEventAsync<ContractCreated>(),

@@ -1,8 +1,8 @@
 ﻿using Charisma.Contracts.Domain.ContractAggregate;
 using Charisma.Contracts.ReadModel.Entities;
-using Charisma.SharedKernel.Core;
-using Charisma.SharedKernel.Core.Interfaces;
-using Charisma.SharedKernel.Data;
+using Charisma.SharedKernel.Data.Abstractions;
+using Charisma.SharedKernel.Data.EntityFramework;
+using Charisma.SharedKernel.Data.EventSourcing;
 using Charisma.SharedKernel.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -12,11 +12,12 @@ namespace Charisma.Contracts.Data.Extensions
 {
     public static class DependencyInjectionExtensions
     {
-        public static void AddDataAccess(this IServiceCollection services)
+        public static void AddContractsDataAccess(this IServiceCollection services)
         {
             services.AddScoped<IEventStore, EventStore>();
             services.AddScoped<IEventRepository, EfEventRepository<CharismaContractsDbContext>>();
             services.AddScoped<IEventSourcedRepository<Contract>, EventSourcedRepository<Contract>>();
+
             services.AddScoped<ICrudRepository<ContractReadModel>, EfCrudRepository<ContractReadModel, CharismaContractsDbContext>>();
 
             services.AddEntityFrameworkSqlServer().AddDbContext<CharismaContractsDbContext>(

@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Charisma.SharedKernel.Core;
+using Charisma.SharedKernel.Domain.Interfaces;
 
 namespace Charisma.SharedKernel.Domain
 {
-    public abstract class EventedAggregateRoot : AggregateRoot
+    public abstract class EventedAggregateRoot : Entity, IEventedAggregateRoot
     {
-        private readonly List<Event> _changes = new List<Event>();
+        private readonly List<DomainEvent> _changes = new List<DomainEvent>();
 
-        protected void AddEvent(Event @event)
+        protected void AddEvent(DomainEvent @event)
         {
             _changes.Add(@event);
         }
 
-        public IEnumerable<Event> GetUncommittedChanges()
+        public IEnumerable<DomainEvent> GetUncommittedChanges()
         {
             return _changes;
         }

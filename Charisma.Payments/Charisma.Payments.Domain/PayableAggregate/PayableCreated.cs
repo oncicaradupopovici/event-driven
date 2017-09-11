@@ -1,9 +1,9 @@
 ﻿using System;
-using Charisma.SharedKernel.Core;
+using Charisma.SharedKernel.Domain;
 
 namespace Charisma.Payments.Domain.PayableAggregate
 {
-    public class PayableCreated : Event
+    public class PayableCreated : DomainEvent
     {
         public PayableCreated(Guid eventId, Guid aggregateId, Guid clientId, decimal amount, Guid? invoiceId)
             : base(eventId, aggregateId)

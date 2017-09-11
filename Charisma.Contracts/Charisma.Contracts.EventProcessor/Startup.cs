@@ -22,9 +22,7 @@ namespace Charisma.Contracts.EventProcessor
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton(_configuration);
-            services.AddApplication();
-
-
+            services.AddContractsApplication();
         }
     }
 }

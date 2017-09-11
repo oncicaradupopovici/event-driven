@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Charisma.SharedKernel.Domain;
+using System;
 using System.Collections.Generic;
-using Charisma.SharedKernel.ReadModel;
 
 namespace Charisma.Contracts.ReadModel.Entities
 {

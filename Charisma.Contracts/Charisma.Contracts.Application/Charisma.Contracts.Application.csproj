@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.Shared.Messaging\Charisma.SharedKernel.Messaging.csproj" />
+    <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.Shared.Messaging.Kafka\Charisma.SharedKernel.Messaging.Kafka.csproj" />
     <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.SharedKernel.Application\Charisma.SharedKernel.Application.csproj" />
     <ProjectReference Include="..\Charisma.Contracts.Data\Charisma.Contracts.Data.csproj" />
     <ProjectReference Include="..\Charisma.Contracts.Domain\Charisma.Contracts.Domain.csproj" />

@@ -25,7 +25,8 @@ namespace Charisma.Payments.Application.CommandHandlers
             if (payable != null)
             {
                 payable.Pay();
-                await this._repository.UpdateAsync(payable);
+                await _repository.UpdateAsync(payable);
+                await _repository.SaveChangesAsync();
             }
         }
     }

@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Charisma.SharedKernel.Core;
+using Charisma.SharedKernel.Domain;
 
 namespace Charisma.Contracts.Domain.ContractAggregate
 {
-    internal class ContractValidated : Event
+    public class ContractValidated : DomainEvent
     {
         public Guid ClientId { get; }
         public decimal Amount { get; }

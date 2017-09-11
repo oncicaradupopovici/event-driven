@@ -15,7 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.SharedKernel.EventProcessor\Charisma.SharedKernel.EventProcessor.csproj" />
     <ProjectReference Include="..\Charisma.Invoices.Application\Charisma.Invoices.Application.csproj" />
   </ItemGroup>
 

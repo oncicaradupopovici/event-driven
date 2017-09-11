@@ -5,12 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\Charisma.Contracts\Charisma.Contracts.PublicContracts\Charisma.Contracts.PublishedLanguage.csproj" />
     <ProjectReference Include="..\..\Charisma.Payments\Charisma.Payments.PublishedLanguage\Charisma.Payments.PublishedLanguage.csproj" />
-    <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.Shared.Messaging\Charisma.SharedKernel.Messaging.csproj" />
+    <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.Shared.Messaging.Kafka\Charisma.SharedKernel.Messaging.Kafka.csproj" />
     <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.SharedKernel.Application\Charisma.SharedKernel.Application.csproj" />
     <ProjectReference Include="..\Charisma.Invoices.Data\Charisma.Invoices.Data.csproj" />
     <ProjectReference Include="..\Charisma.Invoices.Domain\Charisma.Invoices.Domain.csproj" />
+    <ProjectReference Include="..\Charisma.Invoices.PublishedLanguage\Charisma.Invoices.PublishedLanguage.csproj" />
   </ItemGroup>
 
 </Project>

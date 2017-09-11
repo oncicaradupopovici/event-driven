@@ -27,7 +27,7 @@ namespace Charisma.Invoices.EventProcessor
                 .AddConsole(LogLevel.Debug);
 
 
-            var eventProcessor = new SharedKernel.EventProcessor.EventProcessor(serviceProvider);
+            var eventProcessor = new SharedKernel.Application.IntegrationEventProcessor(serviceProvider);
 
             Task.WaitAll(
                 eventProcessor.ProcessEventAsync<ContractValidated>(),

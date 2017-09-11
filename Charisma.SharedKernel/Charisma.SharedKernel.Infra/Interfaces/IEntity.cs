@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Charisma.SharedKernel.Core.Interfaces
 {
-    public interface IEntity
-    {
-        Guid Id { get; }
-    }
+    //public interface IEntity
+    //{
+    //    Guid Id { get; }
+    //}
 }

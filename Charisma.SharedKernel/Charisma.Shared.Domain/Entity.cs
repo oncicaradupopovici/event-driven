@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Charisma.SharedKernel.Domain.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using Charisma.SharedKernel.Core.Interfaces;
 
 namespace Charisma.SharedKernel.Domain
 {

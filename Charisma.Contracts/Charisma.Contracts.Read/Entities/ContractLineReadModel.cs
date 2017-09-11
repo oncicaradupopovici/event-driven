@@ -1,5 +1,5 @@
 ﻿using System;
-using Charisma.SharedKernel.ReadModel;
+using Charisma.SharedKernel.Domain;
 
 namespace Charisma.Contracts.ReadModel.Entities
 {

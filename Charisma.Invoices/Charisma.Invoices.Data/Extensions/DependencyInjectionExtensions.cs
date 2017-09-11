@@ -1,7 +1,6 @@
 ﻿using Charisma.Invoices.Domain.InvoiceAggregate;
-using Charisma.SharedKernel.Core;
-using Charisma.SharedKernel.Core.Interfaces;
-using Charisma.SharedKernel.Data;
+using Charisma.SharedKernel.Data.Abstractions;
+using Charisma.SharedKernel.Data.EntityFramework;
 using Charisma.SharedKernel.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -11,10 +10,9 @@ namespace Charisma.Invoices.Data.Extensions
 {
     public static class DependencyInjectionExtensions
     {
-        public static void AddDataAccess(this IServiceCollection services)
+        public static void AddInvoicesDataAccess(this IServiceCollection services)
         {
-            services.AddScoped<ICrudRepository<Invoice>, EfCrudRepository<Invoice, CharismaInvoicesDbContext>>();
-            services.Decorate<ICrudRepository<Invoice>, EfCrudRepositoryEventedDecorator<Invoice>>();
+            services.AddScoped<ICrudRepository<Invoice>, EfEventedCrudRepository<Invoice, CharismaInvoicesDbContext>>();
 
             services.AddScoped<IEventStore, EventStore>();
             services.AddScoped<IEventRepository, EfEventRepository<CharismaInvoicesDbContext>>();

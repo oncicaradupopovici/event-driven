@@ -1,9 +1,8 @@
 ﻿using System;
-using Charisma.SharedKernel.Core;
 
 namespace Charisma.SharedKernel.Application
 {
-    public class Command : Message
+    public class Command
     {
         public Guid CommandId { get; }
 

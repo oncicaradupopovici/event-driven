@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
-using Charisma.SharedKernel.Domain;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using Microsoft.EntityFrameworkCore;
 using Charisma.Contracts.ReadModel.Entities;
-using Charisma.SharedKernel.Core;
+using Charisma.SharedKernel.Data.Abstractions;
 
 namespace Charisma.Contracts.Data
 {

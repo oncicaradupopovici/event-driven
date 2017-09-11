@@ -1,9 +1,9 @@
-﻿using System;
-using Charisma.SharedKernel.Core;
+﻿using Charisma.SharedKernel.Domain;
+using System;
 
 namespace Charisma.Payments.Domain.PayableAggregate
 {
-    public class PaymentReceived: Event
+    public class PaymentReceived: DomainEvent
     {
         public Guid PaymentId { get; }
         public Guid? InvoiceId { get; }

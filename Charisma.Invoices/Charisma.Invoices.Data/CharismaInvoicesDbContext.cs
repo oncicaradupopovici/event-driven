@@ -1,6 +1,5 @@
 ﻿using Charisma.Invoices.Domain.InvoiceAggregate;
-using Charisma.SharedKernel.Core;
-using Charisma.SharedKernel.Domain;
+using Charisma.SharedKernel.Data.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Charisma.Invoices.Data

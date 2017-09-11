@@ -5,7 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.SharedKernel.Infra\Charisma.SharedKernel.Core.csproj" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Charisma.SharedKernel\Charisma.SharedKernel.Messaging.Abstractions\Charisma.SharedKernel.Messaging.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>

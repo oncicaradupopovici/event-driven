@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using Charisma.Invoices.PublishedLanguage;
+﻿using System.Threading.Tasks;
 using Charisma.Invoices.PublishedLanguage.Events;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -23,7 +21,7 @@ namespace Charisma.Payments.EventProcessor
                 .AddConsole(LogLevel.Debug);
 
 
-            var eventProcessor = new SharedKernel.EventProcessor.EventProcessor(serviceProvider);
+            var eventProcessor = new SharedKernel.Application.IntegrationEventProcessor(serviceProvider);
 
             Task.WaitAll(
                 eventProcessor.ProcessEventAsync<InvoiceCreated>()

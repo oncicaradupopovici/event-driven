@@ -5,7 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Charisma.SharedKernel.Infra\Charisma.SharedKernel.Core.csproj" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.4.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="1.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Charisma.Shared.Domain\Charisma.SharedKernel.Domain.csproj" />
+    <ProjectReference Include="..\Charisma.SharedKernel.EventDrivenAbstractions\Charisma.SharedKernel.EventDrivenAbstractions.csproj" />
+    <ProjectReference Include="..\Charisma.SharedKernel.Messaging.Abstractions\Charisma.SharedKernel.Messaging.Abstractions.csproj" />
+    <ProjectReference Include="..\Charisma.SharedKernel.Reflection\Charisma.SharedKernel.Reflection.csproj" />
   </ItemGroup>
 
 </Project>

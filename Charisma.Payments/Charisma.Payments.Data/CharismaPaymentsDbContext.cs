@@ -1,6 +1,6 @@
 ﻿using Charisma.Payments.Domain.PayableAggregate;
 using Microsoft.EntityFrameworkCore;
-using Charisma.SharedKernel.Core;
+using Charisma.SharedKernel.Data.Abstractions;
 
 namespace Charisma.Payments.Data
 {

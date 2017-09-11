@@ -11,7 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Charisma.SharedKernel.Infra\Charisma.SharedKernel.Core.csproj" />
+    <ProjectReference Include="..\Charisma.SharedKernel.EventDrivenAbstractions\Charisma.SharedKernel.EventDrivenAbstractions.csproj" />
+    <ProjectReference Include="..\Charisma.SharedKernel.Reflection\Charisma.SharedKernel.Reflection.csproj" />
   </ItemGroup>
 
   <ItemGroup>

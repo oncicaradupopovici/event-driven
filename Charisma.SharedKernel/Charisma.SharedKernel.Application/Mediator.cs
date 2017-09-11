@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Charisma.SharedKernel.Application.Interfaces;
-using Charisma.SharedKernel.Core;
-using Charisma.SharedKernel.Core.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
+using Charisma.SharedKernel.EventDrivenAbstractions;
 
 namespace Charisma.SharedKernel.Application
 {
@@ -16,7 +15,7 @@ namespace Charisma.SharedKernel.Application
             _serviceProvider = serviceProvider;
         }
         public async Task Publish<TEvent>(TEvent @event)
-            where TEvent : Event
+            where TEvent : IEvent
         {
             var eventHandlers = _serviceProvider.GetServices<IEventHandler<TEvent>>();
             foreach (var eventHandler in eventHandlers)

@@ -1,20 +1,18 @@
 ﻿using Charisma.Payments.Domain.PayableAggregate;
-using Charisma.SharedKernel.Core;
-using Charisma.SharedKernel.Core.Interfaces;
-using Charisma.SharedKernel.Data;
 using Charisma.SharedKernel.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using Charisma.SharedKernel.Data.EntityFramework;
+using Charisma.SharedKernel.Data.Abstractions;
 
 namespace Charisma.Payments.Data.Extensions
 {
     public static class DependencyInjectionExtensions
     {
-        public static void AddDataAccess(this IServiceCollection services)
+        public static void AddPaymentsDataAccess(this IServiceCollection services)
         {
-            services.AddScoped<ICrudRepository<Payable>, EfCrudRepository<Payable, CharismaPaymentsDbContext>>();
-            services.Decorate<ICrudRepository<Payable>, EfCrudRepositoryEventedDecorator<Payable>>();
+            services.AddScoped<ICrudRepository<Payable>, EfEventedCrudRepository<Payable, CharismaPaymentsDbContext>>();
 
             services.AddScoped<IEventStore, EventStore>();
             services.AddScoped<IEventRepository, EfEventRepository<CharismaPaymentsDbContext>>();

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Charisma.SharedKernel", "Charisma.SharedKernel", "{9420C433-2A2D-48DD-A1EA-3BE61F3449AB}"
 EndProject
@@ -15,13 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Charisma.Payments", "Charis
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Contracts.Domain", "Charisma.Contracts\Charisma.Contracts.Domain\Charisma.Contracts.Domain.csproj", "{13EE0280-753F-434A-8400-9B5BF041C51C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.SharedKernel.Data", "Charisma.SharedKernel\Charisma.Shared.Data\Charisma.SharedKernel.Data.csproj", "{FE2000B7-B4E2-4492-A5C2-E71BD1C44E0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.SharedKernel.Data.Abstractions", "Charisma.SharedKernel\Charisma.Shared.Data\Charisma.SharedKernel.Data.Abstractions.csproj", "{FE2000B7-B4E2-4492-A5C2-E71BD1C44E0C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Contracts.Api", "Charisma.Contracts\Charisma.Contracts.Api\Charisma.Contracts.Api.csproj", "{B17B6455-F94B-4970-BD3E-2497E0586CC5}"
-EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{F80BA17A-5906-4008-B2E1-804D3E126852}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.SharedKernel.Messaging", "Charisma.SharedKernel\Charisma.Shared.Messaging\Charisma.SharedKernel.Messaging.csproj", "{0B4A1FCF-6977-4DC2-922B-6FCB03160391}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Contracts.Data", "Charisma.Contracts\Charisma.Contracts.Data\Charisma.Contracts.Data.csproj", "{22529D2C-BA76-4D48-9233-4BBD6A121C4C}"
 EndProject
@@ -39,15 +35,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Invoices.Migration
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Invoices.Api", "Charisma.Invoices\Charisma.Invoices.Api\Charisma.Invoices.Api.csproj", "{044FAB36-1831-4A7E-8EE4-E4C5ED5D446F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.SharedKernel.EventProcessor", "Charisma.SharedKernel\Charisma.SharedKernel.EventProcessor\Charisma.SharedKernel.EventProcessor.csproj", "{86157913-CF70-47FC-8B6A-6B477BC08F13}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Invoices.EventProcessor", "Charisma.Invoices\Charisma.Invoices.EventProcessor\Charisma.Invoices.EventProcessor.csproj", "{35467B94-027E-4565-AD0E-772D3FFC6394}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Contracts.ReadModel", "Charisma.Contracts\Charisma.Contracts.Read\Charisma.Contracts.ReadModel.csproj", "{DB72B411-536C-4FD2-A8E3-D57803F87DF9}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.SharedKernel.ReadModel", "Charisma.SharedKernel\Charisma.SharedKernel.Read\Charisma.SharedKernel.ReadModel.csproj", "{BAC00A4D-9F34-42CC-A53A-E316A4098A06}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.SharedKernel.Core", "Charisma.SharedKernel\Charisma.SharedKernel.Infra\Charisma.SharedKernel.Core.csproj", "{9A797C8B-4F0C-46AD-B4EA-E8905E8935EB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Contracts.Application", "Charisma.Contracts\Charisma.Contracts.Application\Charisma.Contracts.Application.csproj", "{8FAFEC4E-D390-40EC-9D26-1A1107F1C02C}"
 EndProject
@@ -69,12 +59,26 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Payments.Api", "Ch
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Payments.EventProcessor", "Charisma.Payments\Charisma.Payments.EventProcessor\Charisma.Payments.EventProcessor.csproj", "{52EC6CD7-C141-4C77-A052-61C55312EEF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Charisma.Payments.PublishedLanguage", "Charisma.Payments\Charisma.Payments.PublishedLanguage\Charisma.Payments.PublishedLanguage.csproj", "{FB3F353B-709D-4F24-A208-D75CA0B6A125}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.Payments.PublishedLanguage", "Charisma.Payments\Charisma.Payments.PublishedLanguage\Charisma.Payments.PublishedLanguage.csproj", "{FB3F353B-709D-4F24-A208-D75CA0B6A125}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "architecture", "architecture", "{412CA8AD-3222-4B2B-BD2C-B7A1055C5C00}"
 	ProjectSection(SolutionItems) = preProject
 		Charisma.Contracts\Charisma.Contracts.CodeMap.dgml = Charisma.Contracts\Charisma.Contracts.CodeMap.dgml
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.SharedKernel.Messaging.Abstractions", "Charisma.SharedKernel\Charisma.SharedKernel.Messaging.Abstractions\Charisma.SharedKernel.Messaging.Abstractions.csproj", "{0C507300-7B68-4308-9D03-AD883334456E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.SharedKernel.Messaging.Kafka", "Charisma.SharedKernel\Charisma.Shared.Messaging.Kafka\Charisma.SharedKernel.Messaging.Kafka.csproj", "{330F9495-94CB-462E-88CD-86A63544F2EF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.SharedKernel.Data.EntityFramework", "Charisma.SharedKernel\Charisma.SharedKernel.DataAccess.EntityFramework\Charisma.SharedKernel.Data.EntityFramework.csproj", "{7861723C-5764-4B7D-B857-EB028159769A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.SharedKernel.Data.EventSourcing", "Charisma.SharedKernel\Charisma.SharedKernel.DataAccess.EventSourcing\Charisma.SharedKernel.Data.EventSourcing.csproj", "{DD212F79-7969-4AED-B30A-50315FA5DF2E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Charisma.SharedKernel.Messaging.FakeBus", "Charisma.SharedKernel\Charisma.SharedKernel.Messaging.FakeBus\Charisma.SharedKernel.Messaging.FakeBus.csproj", "{3BA4226F-E8B8-49A4-BF50-6D52F307995A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Charisma.SharedKernel.Reflection", "Charisma.SharedKernel\Charisma.SharedKernel.Reflection\Charisma.SharedKernel.Reflection.csproj", "{6895673B-0F9B-4438-86FA-EE12301B8C8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Charisma.SharedKernel.EventDrivenAbstractions", "Charisma.SharedKernel\Charisma.SharedKernel.EventDrivenAbstractions\Charisma.SharedKernel.EventDrivenAbstractions.csproj", "{B5E045C8-C45C-4400-963B-74B2F3DFE2E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -98,14 +102,6 @@ Global
 		{B17B6455-F94B-4970-BD3E-2497E0586CC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B17B6455-F94B-4970-BD3E-2497E0586CC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B17B6455-F94B-4970-BD3E-2497E0586CC5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F80BA17A-5906-4008-B2E1-804D3E126852}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F80BA17A-5906-4008-B2E1-804D3E126852}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F80BA17A-5906-4008-B2E1-804D3E126852}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F80BA17A-5906-4008-B2E1-804D3E126852}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0B4A1FCF-6977-4DC2-922B-6FCB03160391}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0B4A1FCF-6977-4DC2-922B-6FCB03160391}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0B4A1FCF-6977-4DC2-922B-6FCB03160391}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0B4A1FCF-6977-4DC2-922B-6FCB03160391}.Release|Any CPU.Build.0 = Release|Any CPU
 		{22529D2C-BA76-4D48-9233-4BBD6A121C4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{22529D2C-BA76-4D48-9233-4BBD6A121C4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22529D2C-BA76-4D48-9233-4BBD6A121C4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -138,10 +134,6 @@ Global
 		{044FAB36-1831-4A7E-8EE4-E4C5ED5D446F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{044FAB36-1831-4A7E-8EE4-E4C5ED5D446F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{044FAB36-1831-4A7E-8EE4-E4C5ED5D446F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{86157913-CF70-47FC-8B6A-6B477BC08F13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{86157913-CF70-47FC-8B6A-6B477BC08F13}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{86157913-CF70-47FC-8B6A-6B477BC08F13}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{86157913-CF70-47FC-8B6A-6B477BC08F13}.Release|Any CPU.Build.0 = Release|Any CPU
 		{35467B94-027E-4565-AD0E-772D3FFC6394}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{35467B94-027E-4565-AD0E-772D3FFC6394}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35467B94-027E-4565-AD0E-772D3FFC6394}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -150,14 +142,6 @@ Global
 		{DB72B411-536C-4FD2-A8E3-D57803F87DF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB72B411-536C-4FD2-A8E3-D57803F87DF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB72B411-536C-4FD2-A8E3-D57803F87DF9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BAC00A4D-9F34-42CC-A53A-E316A4098A06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BAC00A4D-9F34-42CC-A53A-E316A4098A06}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BAC00A4D-9F34-42CC-A53A-E316A4098A06}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BAC00A4D-9F34-42CC-A53A-E316A4098A06}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9A797C8B-4F0C-46AD-B4EA-E8905E8935EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9A797C8B-4F0C-46AD-B4EA-E8905E8935EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9A797C8B-4F0C-46AD-B4EA-E8905E8935EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9A797C8B-4F0C-46AD-B4EA-E8905E8935EB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8FAFEC4E-D390-40EC-9D26-1A1107F1C02C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8FAFEC4E-D390-40EC-9D26-1A1107F1C02C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FAFEC4E-D390-40EC-9D26-1A1107F1C02C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -202,6 +186,34 @@ Global
 		{FB3F353B-709D-4F24-A208-D75CA0B6A125}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB3F353B-709D-4F24-A208-D75CA0B6A125}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB3F353B-709D-4F24-A208-D75CA0B6A125}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C507300-7B68-4308-9D03-AD883334456E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C507300-7B68-4308-9D03-AD883334456E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C507300-7B68-4308-9D03-AD883334456E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C507300-7B68-4308-9D03-AD883334456E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{330F9495-94CB-462E-88CD-86A63544F2EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{330F9495-94CB-462E-88CD-86A63544F2EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{330F9495-94CB-462E-88CD-86A63544F2EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{330F9495-94CB-462E-88CD-86A63544F2EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7861723C-5764-4B7D-B857-EB028159769A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7861723C-5764-4B7D-B857-EB028159769A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7861723C-5764-4B7D-B857-EB028159769A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7861723C-5764-4B7D-B857-EB028159769A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD212F79-7969-4AED-B30A-50315FA5DF2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD212F79-7969-4AED-B30A-50315FA5DF2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD212F79-7969-4AED-B30A-50315FA5DF2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD212F79-7969-4AED-B30A-50315FA5DF2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BA4226F-E8B8-49A4-BF50-6D52F307995A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BA4226F-E8B8-49A4-BF50-6D52F307995A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BA4226F-E8B8-49A4-BF50-6D52F307995A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BA4226F-E8B8-49A4-BF50-6D52F307995A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6895673B-0F9B-4438-86FA-EE12301B8C8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6895673B-0F9B-4438-86FA-EE12301B8C8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6895673B-0F9B-4438-86FA-EE12301B8C8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6895673B-0F9B-4438-86FA-EE12301B8C8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5E045C8-C45C-4400-963B-74B2F3DFE2E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5E045C8-C45C-4400-963B-74B2F3DFE2E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5E045C8-C45C-4400-963B-74B2F3DFE2E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5E045C8-C45C-4400-963B-74B2F3DFE2E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -211,7 +223,6 @@ Global
 		{13EE0280-753F-434A-8400-9B5BF041C51C} = {ACEF76D4-9A1D-4896-B431-99944A2496FB}
 		{FE2000B7-B4E2-4492-A5C2-E71BD1C44E0C} = {9420C433-2A2D-48DD-A1EA-3BE61F3449AB}
 		{B17B6455-F94B-4970-BD3E-2497E0586CC5} = {ACEF76D4-9A1D-4896-B431-99944A2496FB}
-		{0B4A1FCF-6977-4DC2-922B-6FCB03160391} = {9420C433-2A2D-48DD-A1EA-3BE61F3449AB}
 		{22529D2C-BA76-4D48-9233-4BBD6A121C4C} = {ACEF76D4-9A1D-4896-B431-99944A2496FB}
 		{7915859C-6119-4030-808B-411E8FC7B5DC} = {ACEF76D4-9A1D-4896-B431-99944A2496FB}
 		{92DA8F37-BADD-4427-93AE-17744D3185FE} = {ACEF76D4-9A1D-4896-B431-99944A2496FB}
@@ -220,11 +231,8 @@ Global
 		{E2EF834A-284B-4C10-AF04-0A37FA34E425} = {C500D16A-E376-4CEB-844C-13D41DCA2CE0}
 		{F8DED4BD-D338-4A78-8077-0135A99E6EAD} = {C500D16A-E376-4CEB-844C-13D41DCA2CE0}
 		{044FAB36-1831-4A7E-8EE4-E4C5ED5D446F} = {C500D16A-E376-4CEB-844C-13D41DCA2CE0}
-		{86157913-CF70-47FC-8B6A-6B477BC08F13} = {9420C433-2A2D-48DD-A1EA-3BE61F3449AB}
 		{35467B94-027E-4565-AD0E-772D3FFC6394} = {C500D16A-E376-4CEB-844C-13D41DCA2CE0}
 		{DB72B411-536C-4FD2-A8E3-D57803F87DF9} = {ACEF76D4-9A1D-4896-B431-99944A2496FB}
-		{BAC00A4D-9F34-42CC-A53A-E316A4098A06} = {9420C433-2A2D-48DD-A1EA-3BE61F3449AB}
-		{9A797C8B-4F0C-46AD-B4EA-E8905E8935EB} = {9420C433-2A2D-48DD-A1EA-3BE61F3449AB}
 		{8FAFEC4E-D390-40EC-9D26-1A1107F1C02C} = {ACEF76D4-9A1D-4896-B431-99944A2496FB}
 		{2026CC59-AB05-49B0-9699-5B99085EE2B9} = {9420C433-2A2D-48DD-A1EA-3BE61F3449AB}
 		{7903F950-20A7-47BC-94FC-55E9E6E46530} = {C500D16A-E376-4CEB-844C-13D41DCA2CE0}
@@ -237,5 +245,15 @@ Global
 		{52EC6CD7-C141-4C77-A052-61C55312EEF1} = {927E5E1E-7063-4A98-9692-C4C4B99D56F3}
 		{FB3F353B-709D-4F24-A208-D75CA0B6A125} = {927E5E1E-7063-4A98-9692-C4C4B99D56F3}
 		{412CA8AD-3222-4B2B-BD2C-B7A1055C5C00} = {ACEF76D4-9A1D-4896-B431-99944A2496FB}
+		{0C507300-7B68-4308-9D03-AD883334456E} = {9420C433-2A2D-48DD-A1EA-3BE61F3449AB}
+		{330F9495-94CB-462E-88CD-86A63544F2EF} = {9420C433-2A2D-48DD-A1EA-3BE61F3449AB}
+		{7861723C-5764-4B7D-B857-EB028159769A} = {9420C433-2A2D-48DD-A1EA-3BE61F3449AB}
+		{DD212F79-7969-4AED-B30A-50315FA5DF2E} = {9420C433-2A2D-48DD-A1EA-3BE61F3449AB}
+		{3BA4226F-E8B8-49A4-BF50-6D52F307995A} = {9420C433-2A2D-48DD-A1EA-3BE61F3449AB}
+		{6895673B-0F9B-4438-86FA-EE12301B8C8B} = {9420C433-2A2D-48DD-A1EA-3BE61F3449AB}
+		{B5E045C8-C45C-4400-963B-74B2F3DFE2E0} = {9420C433-2A2D-48DD-A1EA-3BE61F3449AB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1EA6B570-1FC5-414C-A95F-D03D6F6428A8}
 	EndGlobalSection
 EndGlobal

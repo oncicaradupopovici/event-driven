@@ -27,7 +27,7 @@ namespace Charisma.Contracts.Api
             // Add framework services.
             services.AddMvc();
             services.AddSingleton<IConfiguration>(Configuration);
-            services.AddApplication();
+            services.AddContractsApplication();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
